@@ -1,7 +1,7 @@
-# Recommender Systems Tutorial 2026
+# Transformer-Based Sequential Recommender Systems
 
 Source for the tutorial website at
-<https://janmaltel.github.io/recsys-tutorial-2026/>.
+<https://janmaltel.github.io/transformer-based-recsys-tutorial/>.
 
 ## Editing the site
 
@@ -14,4 +14,3 @@ Run a local preview with Jekyll if it is installed:
 ```sh
 bundle exec jekyll serve --baseurl ""
 ```
-

@@ -3,13 +3,12 @@ layout: default
 title: Home
 ---
 
-<p class="eyebrow">Coming in 2026</p>
+<p class="eyebrow">Tutorial</p>
 
-# Recommender Systems Tutorial
+# Transformer-Based Sequential Recommender Systems
 
 <p class="intro">
   Slides, exercises, code, and further reading will be collected here.
 </p>
 
 <p class="status">Materials are being prepared</p>
-

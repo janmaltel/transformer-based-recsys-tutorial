@@ -1,10 +1,9 @@
-title: Recommender Systems Tutorial 2026
-description: Tutorial materials for Recommender Systems Tutorial 2026.
+title: Transformer-Based Sequential Recommender Systems
+description: Tutorial materials for Transformer-Based Sequential Recommender Systems.
 url: https://janmaltel.github.io
-baseurl: /recsys-tutorial-2026
+baseurl: /transformer-based-recsys-tutorial
 
 markdown: kramdown
 
 exclude:
   - README.md
-
