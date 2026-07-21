@@ -1,0 +1,10 @@
+title: Recommender Systems Tutorial 2026
+description: Tutorial materials for Recommender Systems Tutorial 2026.
+url: https://janmaltel.github.io
+baseurl: /recsys-tutorial-2026
+
+markdown: kramdown
+
+exclude:
+  - README.md
+
