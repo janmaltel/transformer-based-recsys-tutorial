@@ -30,6 +30,23 @@
   function token(parent, value, first) {
     return el(parent, "span", "ep-token" + (first ? " ep-first" : ""), value);
   }
+  function movieSequence(parent) {
+    var kit = root.DiagramKit, example = root.CanonicalMoviePredictionExample;
+    var movies = example.history.concat(example.recommendations.slice(0, 1));
+    var row = el(parent, "div", "ep-sequence");
+    el(row, "p", "ep-sequence-label", "Illustrative sequence");
+    var draw = root.SVG().addTo(row).size(490, 120).viewbox(0, 0, 490, 120);
+    draw.addClass("ep-sequence-posters").attr({
+      role: "img", "aria-label": "Illustrative training sequence: Babe → Jumanji → Toy Story → Toy Story 2"
+    });
+    movies.forEach(function (movie, index) {
+      var x = 8 + index * 126;
+      kit.poster(draw, movie.title, x, 8, {
+        width: 56, height: 84, movieId: movie.id, fontSize: 14, captionWidth: 100
+      });
+      if (index < movies.length - 1) kit.flowArrow(draw, x + 79, 50, 28, { color: kit.colors.muted });
+    });
+  }
   function supervisionTable(parent, start, weights, emptyPrefix) {
     var table = el(parent, "table", "ep-supervision");
     table.setAttribute("aria-label", (emptyPrefix ? "Supervised empty history" : start + " input") + ", next-item targets, and loss weights");
@@ -50,6 +67,7 @@
   }
   function training(content, slide) {
     var layout = frame(content, slide);
+    movieSequence(layout.body);
     var comparisons = el(layout.body, "div", "ep-comparisons");
     var current = stage(el(comparisons, "section", "ep-recipe"), 0);
     point(current, slide, 0);

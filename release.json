@@ -47,8 +47,8 @@
     "slides/assets/diagram-kit.js": "7dd4e5d423e54f30ae8c880ac667df00c1194912af0dc89ff1696f6a4c6f9dc2",
     "slides/assets/embedding-resources-visual.js": "5912f0be8542a5c4a0a579025508d0961ddd50cf2ba52b04d8e018d1641c47fa",
     "slides/assets/embedding-resources.css": "e3f0b7240fceb427c16064add017e2e5f9e6d4baef8f6322e32b176ff695839a",
-    "slides/assets/empty-prefix-visual.js": "62909b639e72317143d564ddffba7f97d669f29988d6ad9ab9036f4406974e76",
-    "slides/assets/empty-prefix.css": "fb7dc220d7caa801f676c76aae8cfe3aaf57b88ef837b8cfc04c81e7d4c78407",
+    "slides/assets/empty-prefix-visual.js": "159a1d727df9f4d7bca04ae1220b00e5ea05461070e76c49119f68f1c61cd812",
+    "slides/assets/empty-prefix.css": "5904ee256efed8a40e35e50eff292923744cd064362379bc3ba9949df2b64a9b",
     "slides/assets/events-sequences-visual.js": "6b65c7ae4ad860b290bee6d3c19ccd5731f4b1cb3c2557664288d7d46d1f3484",
     "slides/assets/foundations-visual.js": "e0eca2d2e39c5a63b6538413936b1ebbdaaf1ed0e1b4a9b06a486dbefab9ef52",
     "slides/assets/foundations.css": "21e7e4648749776c496539eb9bb851ac718f313fdc0588db09157c0978b4ad29",
@@ -3847,6 +3847,6 @@
     "slides/slides/why-movielens-here.js": "a6f5fcb3ba1948cb0f0fd8a3924b69362d0092ba3c64bedd86eeac006fdc1463",
     "slides/slides/working-definition.js": "196c81fe0bd6ae028dc66b1bc0cef294bf93bfdbed8f17e6a4b24226118d21f9"
   },
-  "release": "600c736c0a2d9e013795",
+  "release": "4e3df81aace61d4fd536",
   "schema": 1
 }
