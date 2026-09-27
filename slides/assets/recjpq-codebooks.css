@@ -1,0 +1,30 @@
+.slide-scaling .scaling-codebook-detail { grid-template-columns: 1fr; gap: 0; margin: .5rem 0 .2rem; }
+.scaling-codebook-detail .scaling-main { justify-content: center; }
+.scaling-codebook-detail .scaling-diagram svg { height: 100%; }
+.recjpq-codebooks-label { fill: #17201f; font: 23px 'IBM Plex Sans', sans-serif; }
+.recjpq-codebooks-heading { fill: #00518a; font-weight: 600; }
+.recjpq-codebooks-value { font-size: 25px; font-variant-numeric: tabular-nums; }
+.recjpq-codebooks-cell { fill: #fbfaf7; stroke: #999e9c; stroke-width: 1.5; }
+.recjpq-codebooks-cell.part-one { fill: #f7bdf6; }
+.recjpq-codebooks-cell.part-two { fill: #c6f7c3; }
+.recjpq-codebooks-cell.part-three { fill: #ffffbb; }
+.recjpq-codebooks-tuple { fill: none; stroke: #c9c6bb; stroke-width: 1.5; }
+.recjpq-codebooks-empty { stroke-dasharray: 5 5; }
+.recjpq-codebooks-source { opacity: .3; transition: opacity 180ms; }
+svg:has(.recjpq-codebooks-select[data-code="25"].is-revealed) .recjpq-codebooks-source[data-code="25"],
+svg:has(.recjpq-codebooks-select[data-code="7"].is-revealed) .recjpq-codebooks-source[data-code="7"],
+svg:has(.recjpq-codebooks-select[data-code="2"].is-revealed) .recjpq-codebooks-source[data-code="2"] { opacity: 1; }
+.recjpq-codebooks-selection { fill: none; stroke: #087f73; stroke-width: 4; }
+.recjpq-codebooks-select.is-current .recjpq-codebooks-selection { stroke-width: 7; }
+.recjpq-codebooks-arrow { fill: none; stroke: #657d78; stroke-width: 2.5; }
+.recjpq-codebooks-select-arrow, .recjpq-codebooks-copy-arrow { stroke: #087f73; stroke-width: 4; }
+.recjpq-codebooks-arrowhead { fill: #087f73; }
+.recjpq-codebooks-step-label { fill: #00518a; font-size: 26px; font-weight: 600; }
+.recjpq-codebooks-select:not(.is-current) .recjpq-codebooks-step-label,
+.recjpq-codebooks-copy:not(.is-current) .recjpq-codebooks-step-label,
+.recjpq-codebooks-select:not(.is-current) .recjpq-codebooks-select-arrow,
+.recjpq-codebooks-copy:not(.is-current) .recjpq-codebooks-copy-arrow { visibility: hidden; }
+.recjpq-codebooks-copy.is-revealed .recjpq-codebooks-copy-vector { animation: recjpq-copy-row 650ms cubic-bezier(.2,.7,.2,1) both; }
+@keyframes recjpq-copy-row { from { transform: translate(var(--copy-x), var(--copy-y)); } to { transform: translate(0, 0); } }
+@media (prefers-reduced-motion: reduce) { .recjpq-codebooks-source { transition: none; } .recjpq-codebooks-copy.is-revealed .recjpq-codebooks-copy-vector { animation: none; } }
+@media print { .recjpq-codebooks-source { opacity: 1; } .recjpq-codebooks-copy-vector { animation: none !important; } .recjpq-codebooks-step-label, .recjpq-codebooks-select-arrow, .recjpq-codebooks-copy-arrow { visibility: hidden !important; } }

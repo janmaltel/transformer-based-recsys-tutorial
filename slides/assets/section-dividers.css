@@ -1,0 +1,73 @@
+/* Shared, source-editable dividers. All rules are scoped to section slides. */
+.slide.slide-section-divider .slide-main {
+  align-items: stretch;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.section-divider-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-9);
+  width: 100%;
+}
+
+.section-divider-kicker {
+  margin: 0 0 var(--sp-5);
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-eyebrow);
+  line-height: var(--lh-figure);
+  text-transform: uppercase;
+}
+
+.section-divider-number {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .04em;
+}
+
+.section-divider-title {
+  max-width: 19ch;
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-display);
+  line-height: 1.08;
+  text-wrap: pretty;
+}
+
+.section-kind-block .section-divider-title { font-size: 68px; }
+
+.section-divider-topics {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border-hairline);
+  list-style: none;
+}
+
+.section-divider-topic {
+  padding: var(--sp-5) 0;
+  border-bottom: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 22px;
+  line-height: var(--lh-snug);
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .section-divider-layout { grid-template-columns: 1fr; gap: var(--sp-6); }
+  .section-divider-title,
+  .section-kind-block .section-divider-title {
+    max-width: 28ch;
+    font-size: clamp(32px, 5.6vw, 52px);
+    text-wrap: pretty;
+  }
+  .section-divider-kicker { margin-bottom: var(--sp-3); }
+  .section-divider-topic { padding: var(--sp-3) 0; font-size: 18px; }
+}

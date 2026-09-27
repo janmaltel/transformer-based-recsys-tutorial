@@ -1,0 +1,52 @@
+.sasrec-toolbar [data-field="model"] {
+  display: inline-flex; align-items: center; gap: 0.65rem; min-width: 0;
+}
+.sasrec-toolbar [data-field="model"] > label {
+  flex: none; font-size: 0.82rem;
+}
+.sasrec-toolbar [data-control="model"],
+.sasrec-model-picker {
+  font: 600 0.82rem/1.35 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: normal; text-transform: none;
+}
+.sasrec-model-picker { position: relative; min-width: 0; }
+.sasrec-model-picker .sasrec-model-trigger {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.9rem;
+  max-width: 100%; min-height: 2.15rem; padding: 0.45rem 0.65rem;
+  border: 1px solid var(--playground-line-strong); border-radius: 0;
+  background: var(--playground-card); color: var(--playground-secondary);
+  font: inherit; text-align: left; cursor: pointer;
+}
+.sasrec-model-trigger::after {
+  content: ""; flex: none; width: 0.45rem; height: 0.45rem;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.15rem) rotate(45deg);
+}
+.sasrec-model-trigger:hover,
+.sasrec-model-trigger[aria-expanded="true"] {
+  border-color: var(--playground-accent); color: var(--playground-accent);
+}
+.sasrec-model-trigger:focus-visible {
+  outline: 2px solid var(--playground-highlight); outline-offset: 3px;
+}
+.sasrec-model-options {
+  position: absolute; z-index: 10; top: calc(100% + 0.35rem); left: 0;
+  box-sizing: border-box; width: max-content; min-width: 100%;
+  max-width: min(36rem, 75vw); max-height: min(18rem, 50vh); overflow-y: auto;
+  border: 1px solid var(--playground-line-strong);
+  padding: 0.25rem; background: var(--playground-card); color: var(--playground-secondary);
+}
+.slide-playground .sasrec-model-options { top: auto; bottom: calc(100% + 0.35rem); }
+.denserec-debug-page .sasrec-model-options { top: calc(100% + 0.35rem); bottom: auto; }
+.sasrec-model-option {
+  display: flex; align-items: baseline; gap: 0.55rem; padding: 0.55rem 0.65rem;
+  cursor: pointer;
+}
+.sasrec-model-option::before { content: ""; flex: 0 0 1em; }
+.sasrec-model-option[aria-selected="true"] { color: var(--playground-accent); }
+.sasrec-model-option[aria-selected="true"]::before { content: "✓"; }
+.sasrec-model-option.is-active {
+  background: var(--playground-recessed); outline: 1px solid var(--playground-accent);
+  outline-offset: -1px; color: var(--playground-accent);
+}
+@media print { .sasrec-model-picker { display: none; } }

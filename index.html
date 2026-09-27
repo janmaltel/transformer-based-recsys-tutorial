@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="RecSys 2026 tutorial: Transformer-based Sequential Recommender Systems. Interactive slides, browser playgrounds, and an offline presentation.">
+    <title>Transformer-based Sequential Recommender Systems · RecSys 2026</title>
+    <link rel="stylesheet" href="slides/assets/design-system/tokens/fonts.css">
+    <link rel="stylesheet" href="slides/assets/design-system/tokens/colors.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F8F6F1'/%3E%3Cpath d='M5 16h22' stroke='%230B4F87' stroke-width='2'/%3E%3Cpath d='M6 12v8m10-8v8m10-8v8' stroke='%230B4F87' stroke-width='4'/%3E%3C/svg%3E">
+  </head>
+  <body>
+    <a class="skip-link" href="#materials">Skip to materials</a>
+    <main>
+      <header class="masthead">
+        <a href="./" aria-label="Tutorial home">RecSys 2026</a>
+        <span>Tutorial · 3 hours</span>
+      </header>
+      <section class="intro" aria-labelledby="title">
+        <p class="eyebrow">Transformer models for recommendation</p>
+        <h1 id="title">Transformer-based<br>Sequential Recommender Systems</h1>
+        <p class="summary">From user histories to next-item predictions: an introduction to
+          sequence models, their training objectives, and the choices that shape evaluation and serving.</p>
+        <p class="instructors">
+          <a href="https://www.janmaltel.com/">Jan Malte Lichtenberg</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://asash.github.io/">Aleksandr V. Petrov</a>
+        </p>
+        <nav id="materials" class="materials" aria-label="Tutorial materials">
+          <a class="primary-link" href="slides/index.html">Open interactive slides <span aria-hidden="true">↗</span></a>
+          <a class="download-link" href="https://github.com/janmaltel/transformer-based-recsys-tutorial/releases/latest/download/tutorial-offline.zip">Download offline presentation <span aria-hidden="true">↓</span></a>
+        </nav>
+        <p class="usage">The slides include interactive model playgrounds. For offline use,
+          unzip the download and open <code>tutorial/index.html</code> in your browser.</p>
+      </section>
+      <section class="programme" aria-labelledby="programme-title">
+        <div class="section-heading">
+          <h2 id="programme-title">Programme</h2>
+          <p>Two 90-minute blocks</p>
+        </div>
+        <article class="programme-row">
+          <p class="block-label">Block 1</p>
+          <div>
+            <h3>Foundations and SASRec</h3>
+            <p>Sequential recommendation, chronological data preparation, item embeddings,
+              causal self-attention, and next-item training. SASRec and a small MovieLens
+              example make the model’s computations inspectable.</p>
+          </div>
+        </article>
+        <article class="programme-row">
+          <p class="block-label">Block 2</p>
+          <div>
+            <h3>Objectives, evaluation, and scale</h3>
+            <p>Training objectives and BERT4Rec, evaluation choices, large item catalogs,
+              content representations, cold start, serving, and recent directions in
+              generative recommendation.</p>
+          </div>
+        </article>
+      </section>
+      <section class="participation" aria-labelledby="audience-title">
+        <h2 id="audience-title">Audience and preparation</h2>
+        <p>For researchers and practitioners familiar with basic recommendation and
+          machine-learning concepts. No prior experience with sequential recommenders is required.</p>
+        <p>Bring a laptop to try the playgrounds. Models run in your browser;
+          no account, software installation, or inference service is needed.</p>
+      </section>
+      <footer>
+        <span>Transformer-based Sequential Recommender Systems</span>
+        <a href="https://github.com/janmaltel/transformer-based-recsys-tutorial">Materials on GitHub</a>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+.slide-foundation .slide-content {
+  width: 100%;
+  padding: clamp(2rem, 3.8vw, 3.8rem) clamp(2rem, 5vw, 5rem);
+}
+
+.slide-foundation .eyebrow { margin-bottom: 0.6rem; }
+
+.slide-foundation h2 {
+  max-width: none;
+  font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+}
+
+.foundation-canvas {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.foundation-stage {
+  opacity: 0.16;
+  transform: translateY(0.5rem);
+  transition:
+    opacity 280ms ease,
+    transform 340ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.foundation-stage.is-revealed { opacity: 0.5; transform: translateY(0); }
+.foundation-stage.is-current { opacity: 1; transform: translateY(0); }
+
+.foundation-label {
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.foundation-stage h3 {
+  margin: 0.35rem 0 0.8rem;
+  font-size: clamp(1.15rem, 1.65vw, 1.55rem);
+}
+
+.foundation-caption {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: clamp(0.75rem, 0.9vw, 0.88rem);
+}
+
+.matrix-timeline {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.82fr) auto minmax(23rem, 1.2fr);
+  gap: clamp(1rem, 2vw, 1.8rem);
+  align-items: center;
+}
+
+.matrix-view,
+.timeline-view {
+  min-height: 13.5rem;
+  padding: clamp(1.15rem, 2vw, 1.8rem);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.foundation-stage.is-current.matrix-view,
+.foundation-stage.is-current.timeline-view {
+  border-color: rgb(8 127 115 / 45%);
+  box-shadow: 0 14px 34px rgb(23 32 31 / 8%);
+}
+
+.interaction-matrix {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.42rem;
+  max-width: 15rem;
+}
+
+.matrix-cell {
+  aspect-ratio: 1.45;
+  border-radius: 5px;
+  background: #ebece8;
+}
+
+.matrix-cell.is-hit { background: var(--teal); }
+
+.foundation-bridge {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.event-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.35rem, 0.8vw, 0.7rem);
+  margin-top: 1.3rem;
+}
+
+.event-node {
+  width: clamp(3rem, 4.5vw, 4.5rem);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+  border-radius: 13px;
+  background: var(--accent);
+  color: white;
+}
+
+.event-node-b { background: var(--teal); }
+.event-node-c { background: #596bc6; }
+.event-node strong { font-size: 1.35rem; }
+.event-node span { position: absolute; right: 0.35rem; bottom: 0.22rem; font-size: 0.55rem; opacity: 0.75; }
+.event-arrow { color: #98a29f; font-size: 1.2rem; }
+
+.foundation-takeaway {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgb(8 127 115 / 25%);
+  border-radius: 14px;
+  background: #edf4f2;
+}
+
+.foundation-chips { display: flex; gap: 0.45rem; }
+.foundation-chips span { padding: 0.32rem 0.6rem; border-radius: 999px; background: white; color: var(--teal); font-size: 0.72rem; font-weight: 850; }
+
+.events-examples,
+.movielens-rationale {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.6vw, 1.35rem);
+}
+
+.raw-events,
+.example-construction,
+.rationale-card {
+  padding: clamp(1rem, 1.8vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.foundation-stage.is-current.raw-events,
+.foundation-stage.is-current.example-construction,
+.foundation-stage.is-current.rationale-card {
+  border-color: rgb(8 127 115 / 45%);
+  box-shadow: 0 12px 30px rgb(23 32 31 / 8%);
+}
+
+.event-table { display: grid; gap: 0.28rem; }
+.event-row { display: grid; grid-template-columns: 0.8fr 0.6fr 0.9fr 0.8fr; gap: 0.4rem; padding: 0.35rem 0.5rem; border-radius: 7px; background: #f2f3f0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.72rem; }
+.event-header { background: var(--ink); color: white; font-weight: 800; }
+
+.training-sequence { display: flex; align-items: center; gap: 0.5rem; margin-top: 1.8rem; }
+.history-token, .target-token { width: 3.3rem; height: 3.3rem; display: grid; place-items: center; position: relative; border-radius: 11px; background: var(--teal); color: white; font-size: 1.2rem; font-weight: 850; }
+.target-token { margin-left: 0.5rem; border: 2px dashed var(--accent); background: #fff7f3; color: var(--accent-dark); }
+.target-token small { position: absolute; top: calc(100% + 0.25rem); font-size: 0.55rem; text-transform: uppercase; }
+.sequence-arrow { color: var(--muted); font-size: 1.3rem; }
+
+.time-contract { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(18rem, 1.2fr) minmax(20rem, 1fr); gap: 1rem; align-items: center; padding: 0.85rem 1rem; border-radius: 14px; background: #edf4f2; }
+.time-contract p { margin: 0; font-size: clamp(0.82rem, 1.1vw, 1rem); font-weight: 700; }
+.time-split { display: grid; grid-template-columns: 3fr 1fr 1fr; overflow: hidden; border-radius: 8px; color: white; font-size: 0.72rem; font-weight: 850; text-align: center; }
+.time-split span { padding: 0.55rem 0.35rem; }
+.train-split { background: var(--teal); }
+.valid-split { background: #5e9f98; }
+.test-split { background: var(--accent); }
+
+.rationale-card h3 { margin-top: 0; }
+.teaching-card { border-top: 5px solid var(--teal); }
+.evidence-card { border-top: 5px solid var(--accent); }
+.foundation-points { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
+.foundation-point { display: grid; grid-template-columns: 0.75rem minmax(0, 1fr); gap: 0.65rem; align-items: start; color: var(--muted); font-size: clamp(0.85rem, 1.05vw, 1rem); }
+.foundation-point-dot { width: 0.62rem; height: 0.62rem; margin-top: 0.28rem; border-radius: 50%; background: var(--teal); }
+.evidence-card .foundation-point-dot { background: var(--accent); }
+.movielens-takeaway { justify-content: center; text-align: center; }
+.slide-foundation .slide-footer { margin-top: 0.9rem; font-size: 0.75rem; font-weight: 700; }
+
+@media (max-width: 760px) {
+  .matrix-timeline, .events-examples, .movielens-rationale { grid-template-columns: 1fr; }
+  .foundation-bridge { display: none; }
+  .time-contract { grid-column: auto; grid-template-columns: 1fr; }
+  .foundation-takeaway { grid-column: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foundation-stage { transition: none; }
+}

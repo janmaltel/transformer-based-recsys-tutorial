@@ -1,0 +1,825 @@
+/* Adapter from the existing classic-script deck to the Sequential RecSys
+   Tutorial design system. The source tokens and fonts live in design-system/;
+   this file maps the established slide/runtime classes onto that grammar. */
+
+:root {
+  --paper: var(--surface-desk);
+  --surface: var(--surface-page);
+  --ink: var(--text-primary);
+  --muted: var(--text-muted);
+  --line: var(--border-hairline);
+  --accent: var(--amber-600);
+  --accent-dark: var(--amber-700);
+  --teal: var(--blue-600);
+  --shadow: var(--shadow-frame);
+  color-scheme: light;
+  font-family: var(--font-body);
+}
+
+html { background: var(--surface-desk); }
+
+body {
+  background: var(--surface-desk);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+a { color: var(--link-rest); }
+a:hover { color: var(--link-hover); }
+
+.topbar,
+.controls {
+  min-height: 3rem;
+  gap: var(--sp-4);
+  padding: var(--sp-4) clamp(var(--sp-5), 3vw, var(--sp-8));
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: .06em;
+}
+
+.brand {
+  gap: 0;
+  color: var(--text-accent);
+  letter-spacing: var(--ls-eyebrow);
+}
+
+.brand i { display: none; }
+
+.counter { font-variant-numeric: tabular-nums; }
+
+.deck {
+  padding: var(--sp-3) clamp(var(--sp-5), 3vw, var(--sp-8));
+}
+
+.slide {
+  width: min(94vw, calc((100vh - 7.5rem) * 16 / 9), var(--slide-w));
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-none);
+  background: var(--surface-page);
+  box-shadow: var(--shadow-frame);
+  color: var(--text-primary);
+}
+
+.slide::after,
+.slide-title::before,
+.slide-section-placeholder::before,
+.slide-section-placeholder::after { display: none; }
+
+.slide-content,
+.slide-title .slide-content,
+.slide-definition .slide-content,
+.slide-goals .slide-content,
+.slide-guiding .slide-content,
+.slide-foundation .slide-content,
+.slide-sasrec .slide-content,
+.slide-playground .slide-content {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: var(--slide-pad-top) var(--slide-pad-x) var(--slide-pad-bottom);
+}
+
+.slide-header {
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  padding-bottom: var(--slide-header-gap);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.slide-header-eyebrow,
+.slide-header-folio,
+.eyebrow,
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-eyebrow);
+  line-height: var(--lh-figure);
+  text-transform: uppercase;
+}
+
+.slide-header-eyebrow,
+.eyebrow,
+.section-kicker { color: var(--text-accent); }
+
+.slide-header-folio {
+  color: var(--text-muted);
+  letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.slide-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--sp-5);
+}
+
+.slide-main > h2,
+.slide-section-placeholder h2,
+.slide-definition h2,
+.slide-guiding h2,
+.slide-foundation h2,
+.slide-sasrec h2 {
+  max-width: none;
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-tight);
+  text-wrap: pretty;
+}
+
+.subtitle,
+.slide-sasrec .subtitle {
+  max-width: 104ch;
+  margin: var(--sp-3) 0 0;
+  color: var(--text-accent);
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  font-style: normal;
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+}
+
+.statement-body,
+.slide-definition .statement-body,
+.slide-sasrec .statement-body {
+  max-width: 104ch;
+  margin: var(--sp-3) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+
+.statement-body strong { color: var(--text-primary); }
+
+.slide-footer {
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  margin: var(--slide-footer-gap) 0 0;
+  padding: var(--sp-3) 0 0;
+  border: 0;
+  border-top: 1px solid var(--border-hairline);
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-regular);
+  letter-spacing: .05em;
+  line-height: var(--lh-figure);
+}
+
+.slide-footer-citation {
+  max-width: 100%;
+  font-style: normal;
+  text-align: right;
+}
+
+.slide-footer-with-resources {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .2rem;
+}
+
+/* Opening slide: minimal hero and author/contact apparatus. */
+.slide-title .slide-content { padding-top: var(--slide-pad-top); }
+
+.slide-title .slide-main {
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.title-copy {
+  align-self: auto;
+  padding: 0;
+  text-align: left;
+}
+
+.title-copy .eyebrow {
+  margin: 0 0 var(--sp-6);
+  color: var(--text-accent);
+}
+
+.title-copy h1,
+.slide-title .title-copy h1 {
+  max-width: 20ch;
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: var(--fw-medium);
+  letter-spacing: -.028em;
+  line-height: 1.02;
+  text-align: left;
+}
+
+.title-copy h1 span { display: block; }
+
+.presenter-list {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-8);
+  margin: var(--sp-7) 0 0;
+  padding: var(--sp-5) 0 0;
+  border-top: 1px solid var(--border-hairline);
+  background: transparent;
+}
+
+.presenter {
+  min-width: 0;
+  display: block;
+}
+
+.presenter-avatar { display: none; }
+
+.presenter-details { display: grid; gap: var(--sp-1); }
+
+.presenter-name {
+  color: var(--text-primary);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+}
+
+.presenter-role,
+.presenter-affiliation,
+.presenter-email {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-figure);
+}
+
+.presenter-affiliation { color: var(--text-accent); }
+
+.presenter-email {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.presenter-email:hover { color: var(--link-hover); }
+
+.title-repository {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--sp-5);
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border-hairline);
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-figure);
+}
+
+.title-repository-label {
+  color: var(--text-muted);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+.title-repository-link {
+  min-width: 0;
+  color: var(--link-rest);
+  overflow-wrap: anywhere;
+}
+
+/* Minimal conceptual transition: the tutorial title remains recognizable while
+   the term under discussion carries the only emphasis on the slide. */
+.slide-focus .slide-main {
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.slide-focus .focus-title {
+  max-width: 24ch;
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: var(--fw-medium);
+  letter-spacing: -.028em;
+  line-height: 1.08;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.slide-focus .focus-term {
+  padding: 0 .04em .02em;
+  border-bottom: 3px solid var(--border-highlight);
+  background: transparent;
+  color: var(--text-accent);
+}
+
+/* Section dividers: number and claim on the left, deck ledger on the right. */
+.slide-section-placeholder { background: var(--surface-page); }
+
+.slide-section-placeholder .slide-content {
+  width: 100%;
+  max-width: none;
+}
+
+.slide-section-placeholder .slide-main {
+  justify-content: center;
+  margin-top: 0;
+}
+
+.section-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 520px;
+  gap: var(--sp-10);
+  align-items: center;
+}
+
+.section-kicker { margin: 0 0 var(--sp-5); }
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-7);
+}
+
+.section-number {
+  flex: none;
+  color: var(--blue-600);
+  font-family: var(--font-display);
+  font-size: 132px;
+  font-weight: var(--fw-light);
+  letter-spacing: -.04em;
+  line-height: .8;
+}
+
+.slide-section-placeholder .section-heading h2 {
+  max-width: 14ch;
+  font-size: var(--fs-display);
+  line-height: 1.08;
+}
+
+.section-lead {
+  max-width: 48ch;
+  margin: var(--sp-7) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+}
+
+.section-agenda { border-top: 1px solid var(--border-hairline); }
+
+.section-agenda-row {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: var(--sp-6);
+  align-items: baseline;
+  padding: var(--sp-4) 0;
+  border-bottom: 1px solid var(--border-faint);
+  color: var(--text-faint);
+}
+
+.section-agenda-number {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+}
+
+.section-agenda-title {
+  font-size: var(--fs-small);
+  line-height: var(--lh-snug);
+}
+
+.section-agenda-row.is-current { color: var(--text-primary); }
+.section-agenda-row.is-current .section-agenda-number { color: var(--text-accent); }
+
+/* The legacy placeholder note was authoring apparatus, not audience content. */
+.slide-section-placeholder .slide-footer { display: none; }
+
+/* Generic panels and cards follow the figure-plate register. */
+.columns {
+  gap: var(--sp-6);
+  margin-top: var(--sp-6);
+}
+
+.column,
+.guiding-reason,
+.goal-step,
+.matrix-view,
+.timeline-view,
+.raw-events,
+.example-construction,
+.rationale-card,
+.foundation-takeaway,
+.time-contract,
+.sasrec-diagram-fallback {
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-none);
+  background: transparent;
+  box-shadow: var(--shadow-none);
+}
+
+.column {
+  padding: var(--sp-5);
+  border-top: 1px solid var(--border-hairline);
+  border-left: 2px solid var(--border-accent);
+  animation: none;
+}
+
+.column:nth-child(2) { border-left-color: var(--border-highlight); }
+
+/* Approved hybrid panel grammar (DS-07). Technical and data-bearing figures
+   remain neutral hairline plates. A colored edge is reserved for semantic
+   callouts: claims, goals, warnings, and the one idea currently being named. */
+.figure-panel,
+[data-panel-role="technical"] {
+  border: 1px solid var(--border-hairline);
+  border-left-width: 1px;
+  border-radius: var(--radius-none);
+  background: transparent;
+  box-shadow: var(--shadow-none);
+}
+
+.semantic-callout,
+[data-panel-role="callout"] {
+  border: 1px solid var(--border-hairline);
+  border-left: 2px solid var(--border-accent);
+  border-radius: var(--radius-none);
+  background: color-mix(in srgb, var(--blue-100) 36%, transparent);
+  box-shadow: var(--shadow-none);
+}
+
+.semantic-callout[data-tone="highlight"],
+[data-panel-role="callout"][data-tone="highlight"] {
+  border-left-color: var(--border-highlight);
+  background: color-mix(in srgb, var(--amber-100) 36%, transparent);
+}
+
+.column-label,
+.foundation-label,
+.goal-trace,
+.guiding-answer-label {
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+}
+
+.column h3,
+.foundation-stage h3 {
+  margin: var(--sp-3) 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-title);
+}
+
+.column p,
+.foundation-point,
+.goal-body,
+.guiding-reason p {
+  color: var(--text-secondary);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+}
+
+/* Build grammar: future context stays visible but dim; once introduced, a
+   stage remains fully on for the rest of the cumulative build. */
+[data-build-step] {
+  opacity: var(--dim-opacity) !important;
+  filter: var(--dim-filter) !important;
+  transition: opacity var(--dur-dim) var(--ease-build),
+    filter var(--dur-dim) var(--ease-build) !important;
+}
+
+/* Cancel legacy entrance offsets on HTML stages only. SVG groups use their
+   transform attributes for diagram geometry; overriding those collapses every
+   stage to the SVG origin. */
+[data-build-step]:not(g) {
+  transform: none !important;
+  translate: none !important;
+}
+
+[data-build-step].is-revealed,
+[data-build-step].is-current {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.definition-model.is-current .model-core,
+.definition-model.is-current .model-dot,
+.definition-model.is-current .model-flow,
+.definition-rank.is-current .rank-flow,
+.definition-rank.is-current .rank-row,
+.slide-guiding.is-active .question-not { animation: none !important; }
+
+/* Definition and foundation figures. */
+.definition-visual,
+.foundation-canvas {
+  min-height: 0;
+  flex: 1;
+  margin-top: var(--sp-6);
+}
+
+.definition-visual svg {
+  width: 100%;
+  height: 100%;
+}
+
+.definition-visual .pipeline-panel { fill: var(--surface-page); }
+.definition-visual .ranking-panel { fill: transparent; stroke: var(--border-hairline); }
+.definition-visual .model-core { fill: var(--blue-100); stroke: var(--blue-600); }
+.definition-visual .model-dot { fill: var(--blue-600); }
+.definition-visual .model-wave { stroke: var(--blue-600); }
+.definition-visual .arrow { stroke: var(--border-mid); }
+.definition-visual .example-arrow { stroke: var(--border-strong); }
+
+.definition-visual .poster-card-overlay {
+  fill: rgb(248 246 241 / 94%);
+  stroke: var(--border-hairline);
+}
+
+.definition-visual .poster-card-title { fill: var(--text-primary); }
+.definition-visual .poster-card-year {
+  fill: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: var(--fw-regular);
+}
+.definition-visual .rank-one .movie-poster-frame { stroke: var(--amber-600); }
+.definition-visual .rank-badge { fill: var(--amber-600); stroke: none; }
+
+.question-not {
+  padding: 0;
+  border-radius: 0;
+  border-bottom: 2px solid var(--border-highlight);
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  transform: none;
+}
+
+.guiding-layout { gap: var(--sp-5) var(--sp-8); }
+
+.guiding-answer {
+  padding: var(--sp-5);
+  border-left: 2px solid var(--border-highlight);
+}
+
+.guiding-answer-text {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+.guiding-answer-text strong { color: var(--text-highlight); }
+
+.guiding-takeaway {
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--border-hairline);
+  border-left: 2px solid var(--border-highlight);
+  border-radius: var(--radius-none);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: var(--fs-small);
+}
+
+.guiding-takeaway strong { color: var(--text-highlight); }
+.guiding-takeaway span { color: var(--text-secondary); }
+
+.guiding-reason { padding: var(--sp-4); }
+
+.guiding-reason-icon,
+.goal-marker,
+.goal-heading-number {
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-none);
+  background: var(--surface-accent-wash);
+  box-shadow: none;
+  color: var(--text-accent);
+}
+
+.goal-heading { grid-template-columns: 32px minmax(0, 1fr); }
+
+.goal-heading-text {
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-size: var(--fs-subtitle);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-title);
+}
+
+.goal-step {
+  grid-template-columns: 48px minmax(0, 1fr);
+  padding: var(--sp-4);
+}
+
+.goal-marker {
+  width: 48px;
+  height: 48px;
+}
+
+.goal-marker svg { width: 26px; height: 26px; }
+
+.slide-goals .slide-footer {
+  margin-top: var(--slide-footer-gap);
+  padding-left: 0;
+  border-left: 0;
+  border-top: 1px solid var(--border-hairline);
+  color: var(--text-muted);
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-regular);
+}
+
+.matrix-cell,
+.event-node,
+.history-token,
+.target-token,
+.event-row,
+.time-split,
+.foundation-chips span {
+  border-radius: var(--radius-none);
+}
+
+.matrix-cell { background: var(--data-masked); }
+.matrix-cell.is-hit { background: var(--data-ink); }
+.event-node,
+.history-token { background: var(--blue-600); }
+.event-node-b { background: var(--cat-3); }
+.event-node-c { background: var(--cat-5); }
+
+.target-token {
+  border: 1px dashed var(--border-highlight);
+  background: var(--surface-highlight-wash);
+  color: var(--text-highlight);
+}
+
+.foundation-takeaway,
+.time-contract { background: color-mix(in srgb, var(--blue-600) 5%, transparent); }
+
+.foundation-chips span {
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border-hairline);
+  background: transparent;
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+}
+
+.teaching-card,
+.evidence-card { border-top: 1px solid var(--border-hairline); }
+.teaching-card { border-left: 2px solid var(--border-accent); }
+.evidence-card { border-left: 2px solid var(--border-highlight); }
+.foundation-point-dot { border-radius: 0; background: var(--data-ink); }
+.evidence-card .foundation-point-dot { background: var(--data-highlight); }
+
+.event-header { background: var(--ink-1); }
+.train-split { background: var(--blue-600); }
+.valid-split { background: var(--blue-300); color: var(--ink-1); }
+.test-split { background: var(--amber-600); }
+
+/* SASRec figures keep their geometry but use the publication register. */
+.slide-sasrec .slide-main { min-height: 0; }
+
+.sasrec-canvas {
+  min-height: 0;
+  flex: 1;
+  margin-top: var(--sp-5);
+}
+
+.sasrec-svg-host .sasrec-stage.is-current { filter: none; }
+
+.sasrec-equation {
+  min-height: 0;
+  border: 0;
+  border-left: 2px solid var(--border-accent);
+  border-radius: 0;
+  padding: var(--sp-3) var(--sp-4);
+  background: color-mix(in srgb, var(--blue-600) 6%, transparent);
+  box-shadow: none;
+  color: var(--text-primary);
+  font-family: var(--font-math);
+  font-size: var(--fs-small);
+}
+
+.sasrec-diagram-fallback { color: var(--text-muted); }
+
+/* Playground slides use their own tighter frame. The playground main is
+   already the layout container, so it must not inherit a second inset. */
+.slide-playground .slide-content {
+  padding: 32px 44px 28px;
+}
+
+.slide-playground .slide-main.playground-slide-content {
+  margin-top: var(--sp-6);
+  padding: 0;
+}
+
+/* Controls belong to the preview shell, not to the slide design. */
+.controls button {
+  min-height: 2rem;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-none);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface-page);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+}
+
+.controls button:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+.controls button:focus-visible,
+.slide :focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.progress {
+  height: 2px;
+  border-radius: 0;
+  background: var(--border-hairline);
+}
+
+.progress span {
+  background: var(--blue-600);
+  transition: width var(--dur-build) linear;
+}
+
+@media (max-width: 760px) {
+  .slide {
+    width: 100%;
+    min-height: calc(100vh - 7rem);
+    aspect-ratio: auto;
+    overflow: auto;
+  }
+
+  .slide-content,
+  .slide-title .slide-content,
+  .slide-definition .slide-content,
+  .slide-goals .slide-content,
+  .slide-guiding .slide-content,
+  .slide-foundation .slide-content,
+  .slide-sasrec .slide-content,
+  .slide-playground .slide-content {
+    min-height: 720px;
+    padding: var(--sp-7) var(--sp-6);
+  }
+
+  .title-copy h1,
+  .slide-title .title-copy h1 { font-size: var(--fs-display); }
+
+  .section-layout { grid-template-columns: 1fr; gap: var(--sp-7); }
+  .section-number { font-size: 92px; }
+  .presenter-list { flex-direction: column; gap: var(--sp-4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-build-step],
+  .progress span { transition: none !important; }
+}
+
+@media print {
+  .slide,
+  .slide.is-active {
+    width: 100%;
+    height: 100vh;
+    aspect-ratio: auto;
+    display: grid;
+    break-after: page;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .slide:last-child { break-after: auto; }
+
+  [data-build-step],
+  [data-build-step].is-current {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}

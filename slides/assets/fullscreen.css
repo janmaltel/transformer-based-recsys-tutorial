@@ -1,0 +1,42 @@
+:is(:fullscreen, .is-presenting) body {
+  min-height: 100vh;
+  grid-template-rows: 1fr;
+  background: var(--surface-page);
+}
+
+:is(:fullscreen, .is-presenting) .topbar {
+  width: auto;
+  position: fixed;
+  z-index: 10;
+  top: 1rem;
+  right: 1rem;
+  padding: 0;
+  pointer-events: none;
+}
+
+:is(:fullscreen, .is-presenting) .brand,
+:is(:fullscreen, .is-presenting) .controls {
+  display: none;
+}
+
+:is(:fullscreen, .is-presenting) .counter {
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-none);
+  background: var(--surface-page);
+  box-shadow: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+:is(:fullscreen, .is-presenting) .deck {
+  padding: 0;
+}
+
+:is(:fullscreen, .is-presenting) .slide {
+  width: 100vw;
+  height: 100vh;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}

@@ -1,0 +1,13 @@
+.slide-scaling .scaling-assignment-detail { grid-template-columns: 1fr; gap: 0; margin: .5rem 0 .2rem; }
+.scaling-assignment-detail .scaling-main { justify-content: center; }
+.scaling-assignment-detail .scaling-diagram svg { height: 100%; }
+.recjpq-assignment-label { fill: #17201f; font: 22px 'IBM Plex Sans', sans-serif; }
+.recjpq-assignment-heading { font-size: 25px; font-weight: 600; }
+.recjpq-assignment-value { font-size: 20px; font-variant-numeric: tabular-nums; }
+.recjpq-assignment-symbol { font-size: 34px; }
+.recjpq-assignment-cell { fill: #fbfaf7; stroke: #939b99; stroke-width: 1.8; }
+.recjpq-assignment-cell.is-event { fill: #c4c0f2; }
+.recjpq-assignment-step { fill: #fbfaf7; stroke: #939b99; stroke-width: 2; }
+.recjpq-assignment-flow { fill: none; stroke: #17201f; stroke-width: 2.2; stroke-dasharray: 2 10; stroke-linecap: round; }
+.recjpq-assignment-arrowhead { fill: #17201f; }
+.recjpq-assignment-bracket { fill: none; stroke: #17201f; stroke-width: 2.5; }

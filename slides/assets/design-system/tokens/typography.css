@@ -1,0 +1,51 @@
+/* Typography — a journal display serif over a technical sans, with monospace
+   for anything a machine produced (IDs, shapes, tensor dims, metrics) and
+   KaTeX/Computer Modern for mathematics. Never set maths in the body sans. */
+:root{
+/* --- Families --- */
+--font-display:"Newsreader",Georgia,"Times New Roman",serif; /* @kind font */
+--font-body:"IBM Plex Sans",system-ui,-apple-system,sans-serif; /* @kind font */
+--font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace; /* @kind font */
+--font-math:"KaTeX_Main","Latin Modern Roman","Computer Modern Serif",Georgia,serif; /* @kind font */
+
+/* --- Size scale, authored at 1280x720 slide scale. Never below 24px for
+       primary slide body text; the small sizes below are for figure apparatus
+       (labels, tick marks, captions) read from a laptop, not the back row. --- */
+--fs-hero:56px;      /* @kind font */
+--fs-display:44px;   /* @kind font */
+--fs-title:36px;     /* @kind font */
+--fs-subtitle:24px;  /* @kind font */
+--fs-lead:17px;      /* @kind font */
+--fs-body:15px;      /* @kind font */
+--fs-small:13px;     /* @kind font */
+--fs-caption:11px;   /* @kind font */
+--fs-label:9.5px;    /* @kind font */
+--fs-micro:8.5px;    /* @kind font */
+
+/* --- Line heights --- */
+--lh-tight:1.06;   /* @kind other */
+--lh-title:1.14;   /* @kind other */
+--lh-snug:1.35;    /* @kind other */
+--lh-body:1.55;    /* @kind other */
+--lh-figure:1.25;  /* @kind other */
+
+/* --- Weights. Newsreader carries titles at 500, never bold. --- */
+--fw-light:300;    /* @kind other */
+--fw-regular:400;  /* @kind other */
+--fw-medium:500;   /* @kind other */
+--fw-semibold:600; /* @kind other */
+--fw-bold:700;     /* @kind other */
+
+/* --- Tracking. Display tightens; mono labels open up. --- */
+--ls-display:-.021em; /* @kind other */
+--ls-title:-.018em;   /* @kind other */
+--ls-normal:0;        /* @kind other */
+--ls-label:.11em;     /* @kind other */
+--ls-eyebrow:.14em;   /* @kind other */
+
+/* --- Composed roles --- */
+--text-eyebrow-font:var(--font-mono);  /* @kind font */
+--text-title-font:var(--font-display); /* @kind font */
+--text-body-font:var(--font-body);     /* @kind font */
+--text-data-font:var(--font-mono);     /* @kind font */
+}

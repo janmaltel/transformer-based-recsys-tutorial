@@ -1,0 +1,97 @@
+.objective-loss-lab {
+  --objective-positive: #1b6b5a;
+  --objective-negative: #956018;
+  flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 12px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.objective-loss-lab .sasrec-stage:not(.is-revealed) { visibility: hidden; }
+.objective-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.objective-prefix { color: #78808a; font-size: 17px; }
+.objective-controls { display: flex; align-items: center; gap: 14px; }
+.objective-mode-switch { display: flex; }
+.objective-mode, .objective-reset {
+  border: 1px solid #d7d3c9; background: transparent; padding: 7px 12px;
+  color: #3f464e; font: 12px "IBM Plex Mono", monospace; cursor: pointer;
+}
+.objective-mode + .objective-mode { border-left: 0; }
+.objective-mode[aria-pressed="true"] { background: #0b4f87; color: white; }
+.objective-mode:focus-visible, .objective-reset:focus-visible { outline: 2px solid #0b4f87; outline-offset: 3px; }
+.objective-gradient-toggle { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #0b4f87; }
+.objective-gradient-toggle input { accent-color: #0b4f87; }
+.objective-gradient-toggle { white-space: nowrap; }
+.objective-space-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.65fr 1fr; gap: 24px; }
+.objective-plot-side { display: flex; flex-direction: column; min-height: 0; }
+.objective-plot-host { flex: 1; min-height: 0; }
+.objective-embedding-plot { display: block; width: 100%; height: 100%; overflow: visible; font-family: "IBM Plex Sans", sans-serif; }
+.objective-axes { fill: none; stroke: #d7d3c9; stroke-width: 1; }
+.objective-axis-label { fill: #a9aeb4; font: 14px "IBM Plex Mono", monospace; }
+.objective-origin { fill: #78808a; }
+.objective-heatmap { pointer-events: none; shape-rendering: crispEdges; }
+.has-heatmap .objective-axis-label { fill: #697681; }
+.has-heatmap .objective-axes { stroke: #a7acae; }
+.objective-heatmap-legend { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-shrink: 0; color: #68717a; font-size: 11px; }
+.objective-heatmap-limit { font-family: "IBM Plex Mono", monospace; }
+.objective-heatmap-ramp { width: 90px; height: 10px; border: 1px solid #c6c9c7; }
+.objective-heatmap-scope { margin-left: auto; }
+.objective-item-ray { stroke: currentColor; stroke-width: 1; stroke-dasharray: 4 5; opacity: .25; }
+.objective-item-handle.positive { color: var(--objective-positive); }
+.objective-item-handle.negative { color: var(--objective-negative); }
+.objective-item-point { fill: currentColor; }
+.objective-item-sign { fill: white; font-size: 16px; font-weight: 600; }
+.objective-item-name, .objective-item-role { fill: currentColor; font-size: 22px; font-weight: 600; }
+.objective-poster-link { stroke: currentColor; stroke-width: 1; }
+.objective-poster-fallback { fill: #f8f6f1; stroke: currentColor; stroke-width: 1; }
+.objective-poster-fallback-label { fill: currentColor; font-size: 28px; }
+.objective-item-poster { pointer-events: none; }
+.objective-query-handle, .objective-item-handle { cursor: grab; touch-action: none; outline: none; }
+.objective-query-handle:active, .objective-item-handle:active { cursor: grabbing; }
+.objective-query-hit, .objective-item-hit { fill: transparent; }
+.objective-query-point { fill: #0b4f87; stroke: #f8f6f1; stroke-width: 3; }
+.objective-query-handle:focus-visible .objective-query-hit, .objective-item-handle:focus-visible .objective-item-hit { stroke: #0b4f87; stroke-width: 2; stroke-dasharray: 3 3; }
+.objective-query-label { fill: #0b4f87; font-size: 22px; font-weight: 600; pointer-events: none; }
+.objective-item-handle:focus-visible { outline: none; }
+.objective-item-handle:focus-visible .objective-item-point { stroke: #16191d; stroke-width: 2; }
+.objective-gradient-arrow, .objective-item-gradient, .objective-item-ray, .objective-poster-link { pointer-events: none; }
+.objective-descent-line { stroke: #0b4f87; stroke-width: 3; }
+.objective-gradient-head { fill: #0b4f87; }
+.objective-item-gradient.positive { color: var(--objective-positive); }
+.objective-item-gradient.negative { color: var(--objective-negative); }
+.objective-item-descent-line { stroke: currentColor; stroke-width: 2; }
+.objective-item-gradient-head.positive { fill: var(--objective-positive); }
+.objective-item-gradient-head.negative { fill: var(--objective-negative); }
+.objective-plot-caption { display: flex; flex-shrink: 0; justify-content: space-between; gap: 10px; align-items: center; }
+.objective-coordinates { color: #78808a; font: 12px "IBM Plex Mono", monospace; }
+.objective-gradient-legend { color: #0b4f87; font-size: 13px; }
+.objective-space-details { display: flex; flex-direction: column; justify-content: center; min-height: 0; gap: 18px; }
+.objective-scope { font-size: 14px; color: #78808a; margin: 0; }
+.objective-score-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.objective-score-table th, .objective-score-table td { padding: 9px 0; text-align: right; white-space: nowrap; }
+.objective-score-table th:first-child { text-align: left; padding-right: 10px; }
+.objective-score-table thead th { color: #78808a; font-size: 11px; font-weight: 400; border-bottom: 1px solid #d7d3c9; }
+.objective-score-table tbody th { font-weight: 500; }
+.objective-score-table output { font: 12px "IBM Plex Mono", monospace; }
+.objective-score-row.positive { color: var(--objective-positive); }
+.objective-score-row.negative { color: var(--objective-negative); }
+.objective-loss-readout { display: flex; align-items: baseline; gap: 12px; border-top: 1px solid #d7d3c9; padding-top: 12px; }
+.objective-readout-label { font-size: 16px; color: #78808a; }
+.objective-total { font: 38px "IBM Plex Mono", monospace; color: #16191d; }
+.objective-loss-formula { font-size: 15px; }
+.objective-gradient-readout { display: flex; flex-direction: column; gap: 5px; color: #0b4f87; }
+.objective-gradient-value { font-size: 14px; }
+.objective-gradient-hint { color: #78808a; font-size: 12px; }
+.objective-loss-footnote { font-size: 12px; color: #78808a; flex-shrink: 0; }
+.objective-loss-lab [hidden] { display: none !important; }
+.objective-intuition .sasrec-equation { font-size: 20px; }
+@media (min-height: 850px) and (min-width: 1400px) {
+  .objective-prefix { font-size: 22px; }
+  .objective-space-details { gap: 28px; }
+  .objective-score-table { font-size: 20px; }
+  .objective-score-table output { font-size: 17px; }
+  .objective-score-table thead th, .objective-scope { font-size: 16px; }
+  .objective-loss-formula, .objective-gradient-value { font-size: 20px; }
+  .objective-gradient-hint, .objective-gradient-legend, .objective-loss-footnote { font-size: 16px; }
+}
+@media print {
+  .objective-loss-lab .sasrec-stage { visibility: visible !important; }
+  .objective-controls { display: none; }
+}

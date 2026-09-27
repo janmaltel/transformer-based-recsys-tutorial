@@ -1,0 +1,45 @@
+.denserec-debug-page .slide-playground .playground-slide-content { margin-top: 0; padding: 0; }
+.denserec-debug-page .slide-main { margin-top: 0.7rem; }
+.denserec-debug-page .sasrec-playground {
+  grid-template-rows: auto minmax(0, 0.78fr) minmax(0, 1fr) auto;
+  gap: 0.65rem 1.4rem; padding-top: 0.65rem;
+}
+.denserec-debug-page .sasrec-search { grid-row: 1 / 4; }
+.denserec-debug-page .sasrec-toolbar { grid-column: 2; grid-row: 1; }
+.denserec-debug-page .sasrec-history { grid-row: 2; }
+.denserec-debug-page .sasrec-recommendations { grid-row: 3; }
+.denserec-debug-page .sasrec-toolbar [data-control="model"] { max-width: 18rem; }
+.denserec-debug-page .sasrec-denserec-summary { order: 2; flex: 0 0 100%; white-space: nowrap; }
+.denserec-debug-page .sasrec-run-summary { margin-left: auto; }
+.denserec-debug-page .sasrec-lane-heading strong { white-space: nowrap; }
+.denserec-debug-page .sasrec-playground-footer {
+  position: static; grid-column: 1 / -1; grid-row: 4; height: auto;
+  min-height: 1.35rem; align-items: center;
+}
+/* Size posters to each lane's available height so proxy names and scores fit. */
+.denserec-debug-page .sasrec-strip { container-type: size; }
+.denserec-debug-page .sasrec-history .sasrec-strip { padding-bottom: 0.6rem; }
+.denserec-debug-page .sasrec-history-card {
+  width: min(6.7rem, calc((100cqh - 2.1rem) * 2 / 3));
+  flex-basis: min(6.7rem, calc((100cqh - 2.1rem) * 2 / 3));
+}
+.denserec-debug-page .sasrec-history .sasrec-strip::after {
+  width: min(6.7rem, calc((100cqh - 2.1rem) * 2 / 3));
+  flex-basis: min(6.7rem, calc((100cqh - 2.1rem) * 2 / 3));
+  height: calc(100cqh - 2.1rem);
+}
+.denserec-debug-page .sasrec-recommendation-card {
+  width: min(calc((100cqw - 2.8rem) / 5), calc((100cqh - 3rem) * 2 / 3));
+  flex-basis: min(calc((100cqw - 2.8rem) / 5), calc((100cqh - 3rem) * 2 / 3));
+  animation: none;
+}
+.sasrec-debug-score {
+  color: var(--playground-muted); font: 0.55rem/1.3 var(--font-mono, monospace);
+  text-align: left;
+}
+@media print {
+  .denserec-debug-page .sasrec-playground { grid-template-rows: minmax(0, 0.78fr) minmax(0, 1fr) auto; }
+  .denserec-debug-page .sasrec-history { grid-row: 1; }
+  .denserec-debug-page .sasrec-recommendations { grid-row: 2; }
+  .denserec-debug-page .sasrec-playground-footer { grid-row: 3; }
+}

@@ -1,16 +1,28 @@
-# Transformer-Based Sequential Recommender Systems
+# Transformer-based Sequential Recommender Systems
 
-Source for the tutorial website at
-<https://janmaltel.github.io/transformer-based-recsys-tutorial/>.
+Materials for the RecSys 2026 tutorial by Jan Malte Lichtenberg and
+Aleksandr V. Petrov.
 
-## Editing the site
+- [Tutorial website](https://janmaltel.github.io/transformer-based-recsys-tutorial/)
+- [Interactive slides](https://janmaltel.github.io/transformer-based-recsys-tutorial/slides/)
+- [Offline presentation ZIP](https://github.com/janmaltel/transformer-based-recsys-tutorial/releases/latest/download/tutorial-offline.zip)
 
-The home page is [`index.md`](index.md). Add more Markdown files alongside it
-and link to them from the home page. GitHub Pages rebuilds the site whenever a
-change is pushed to `main`.
+The presentation includes interactive browser playgrounds and their pretrained
+model assets. No account, installation, or inference server is required.
 
-Run a local preview with Jekyll if it is installed:
+For offline use, unzip `tutorial-offline.zip` and open `tutorial/index.html`.
+Keep the extracted folder intact so the slides can load fonts, posters, and
+model weights. Use the arrow buttons or Left/Right keys to navigate slides
+and their build steps. Playground controls operate directly in the browser.
 
-```sh
-bundle exec jekyll serve --baseurl ""
-```
+This repository contains published attendee materials. Training code, authoring
+tools, and presenter notes are not part of the distribution. Model weights and
+browser inference code are included so the playgrounds also work offline.
+
+Third-party notices and licenses accompany the relevant assets in
+`slides/assets/`. In particular, the MovieLens display catalog retains its
+research-use terms. Poster artwork remains subject to its owners’ rights;
+this distribution does not grant a separate license to that artwork.
+
+`release.json` identifies each published snapshot by its content and records
+file checksums. The downloadable ZIP contains the same snapshot as the site.

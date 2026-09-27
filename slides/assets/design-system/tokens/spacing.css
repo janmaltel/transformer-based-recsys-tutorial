@@ -1,0 +1,36 @@
+/* Spacing — a tight scale. Figures are packed; the space between a label and
+   the thing it labels should be smaller than the space between two figures. */
+:root{
+--sp-0:0px;
+--sp-1:2px;
+--sp-2:4px;
+--sp-3:7px;
+--sp-4:10px;
+--sp-5:14px;
+--sp-6:20px;
+--sp-7:28px;
+--sp-8:40px;
+--sp-9:54px;
+--sp-10:72px;
+
+/* --- Figure apparatus: label-to-mark, cell gaps, tick lengths. --- */
+--sp-cell-gap:1px;
+--sp-label-gap:5px;
+--sp-tick:3px;
+--sp-panel-gap:20px;
+--sp-column-gap:44px;
+
+/* --- Slide geometry. 16:9 at 1280x720; padding is asymmetric because the
+       footer rule already provides optical weight at the bottom. --- */
+--slide-w:1280px;
+--slide-h:720px;
+--slide-pad-x:54px;
+--slide-pad-top:42px;
+--slide-pad-bottom:30px;
+--slide-header-gap:9px;
+--slide-footer-gap:10px;
+
+/* --- Document geometry for the printable/article surface. --- */
+--measure-body:68ch;
+--measure-caption:112ch;
+}

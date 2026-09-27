@@ -1,0 +1,96 @@
+/* Colour — warm paper ground, ink-blue accent, Tufte data-ink discipline.
+   Colour is data first and decoration never. Text is ink; hue is reserved for
+   encoding a value, marking the one thing under discussion, or separating series. */
+:root{
+/* --- Paper: the substrate. Warm, never pure grey. --- */
+--paper-0:#FFFFFF;
+--paper-1:#F8F6F1;
+--paper-2:#F1EEE6;
+--paper-3:#E9E4D8;
+
+/* --- Ink: the text ramp. --- */
+--ink-0:#0E1114;
+--ink-1:#16191D;
+--ink-2:#3F464E;
+--ink-3:#78808A;
+--ink-4:#A9AEB4;
+
+/* --- Rules: hairlines. Two weights only. --- */
+--rule-1:#D7D3C9;
+--rule-2:#EBE7DE;
+
+/* --- Accent: one hue carries the system. --- */
+--blue-700:#083C68;
+--blue-600:#0B4F87;
+--blue-500:#2E6C9E;
+--blue-300:#8AAECB;
+--blue-100:#DCE7F0;
+
+/* --- Highlight: the "look here" colour. Used on at most one element per figure. --- */
+--amber-700:#8A5715;
+--amber-600:#B47320;
+--amber-300:#DFBE86;
+--amber-100:#F5E9D5;
+
+/* --- Sequential scale: unsigned magnitude (attention weights, |activation|). --- */
+--seq-1:#EAEFF5;
+--seq-2:#C6D6E6;
+--seq-3:#9BBAD5;
+--seq-4:#6C99C1;
+--seq-5:#3B74A6;
+--seq-6:#0B4F87;
+
+/* --- Diverging scale: signed values. Embedding coordinates are signed; a
+       sequential ramp misrepresents them. Zero sits at the paper tint. --- */
+--div-n3:#9A5B18;
+--div-n2:#C08A45;
+--div-n1:#E3C79B;
+--div-0:#F1EEE6;
+--div-p1:#A8C0D6;
+--div-p2:#4E7FAC;
+--div-p3:#0B4F87;
+
+/* --- Categorical: model/series comparison. Five maximum, print-safe,
+       distinguishable in greyscale by value as well as hue. --- */
+--cat-1:#0B4F87;
+--cat-2:#B47320;
+--cat-3:#1B6B5A;
+--cat-4:#8C2A1C;
+--cat-5:#55597A;
+
+/* --- Semantic aliases: components reference these, not the ramps above. --- */
+--text-primary:var(--ink-1);
+--text-secondary:var(--ink-2);
+--text-muted:var(--ink-3);
+--text-faint:var(--ink-4);
+--text-accent:var(--blue-600);
+--text-highlight:var(--amber-700);
+--text-inverse:var(--paper-1);
+
+--surface-page:var(--paper-1);
+--surface-card:var(--paper-0);
+--surface-recessed:var(--paper-2);
+--surface-desk:var(--paper-3);
+--surface-accent:var(--blue-600);
+--surface-accent-wash:var(--blue-100);
+--surface-highlight-wash:var(--amber-100);
+
+--border-faint:var(--rule-2);
+--border-hairline:var(--rule-1);
+--border-mid:var(--ink-4);
+--border-strong:var(--ink-1);
+--border-accent:var(--blue-600);
+--border-highlight:var(--amber-600);
+
+/* --- Figure semantics: what the diagram primitives mean. --- */
+--data-ink:var(--blue-600);
+--data-highlight:var(--amber-600);
+--data-masked:var(--rule-2);
+--data-pad:var(--rule-2);
+--data-baseline:var(--ink-4);
+--data-grid:var(--rule-2);
+
+--focus-ring:var(--amber-600);
+--link-rest:var(--blue-600);
+--link-hover:var(--ink-1);
+}

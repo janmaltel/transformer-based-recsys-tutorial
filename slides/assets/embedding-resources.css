@@ -1,0 +1,61 @@
+.embedding-resource-layout {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
+  gap: 24px; align-items: center;
+}
+.embedding-resource-figure { margin: 0; min-width: 0; }
+.embedding-resource-image-link { display: block; }
+.embedding-resource-figure img { display: block; width: 100%; height: auto; max-height: 400px; object-fit: contain; }
+.embedding-resource-figure figcaption { margin-top: 10px; }
+.embedding-resource-links { display: grid; gap: 34px; }
+.embedding-resource-links h3 { font-size: 20px; line-height: 1.35; }
+.embedding-resource-links p { font-size: 16px; overflow-wrap: anywhere; }
+.embedding-resource-links a { color: var(--dr-blue); text-decoration: underline; text-underline-offset: 4px; }
+.embedding-resource a:focus-visible { outline: 2px solid var(--dr-blue); outline-offset: 5px; }
+.movie-content-encoding .dr-body { justify-content: center; }
+.movie-content-encoding .dr-note:empty { display: none; }
+.movie-content-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) 76px minmax(0, .95fr) 48px minmax(0, .85fr);
+  gap: 12px;
+  align-items: center;
+}
+.movie-content-record,
+.movie-content-encoder,
+.movie-content-output {
+  min-width: 0;
+  border: 1px solid var(--dr-line);
+  padding: 16px;
+}
+.movie-content-encoding .movie-content-kicker { margin: 0 0 12px; color: #66717b; font: 12px/1.4 "IBM Plex Mono", monospace; }
+.movie-content-record-body { display: grid; grid-template-columns: minmax(94px, 132px) minmax(0, 1fr); gap: 18px; align-items: center; }
+.movie-content-poster { margin: 0; min-width: 0; }
+.movie-content-poster-frame { position: relative; width: 100%; aspect-ratio: 2 / 3; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--dr-line); background: #eeece5; }
+.movie-content-poster-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.movie-content-poster-frame img[hidden], .movie-content-poster-fallback[hidden] { display: none; }
+.movie-content-poster-fallback { padding: 8px; color: #66717b; font-size: 13px; text-align: center; }
+.movie-content-fields { display: grid; gap: 11px; margin: 0; }
+.movie-content-field dt { color: #66717b; font: 11px/1.3 "IBM Plex Mono", monospace; }
+.movie-content-field dd { margin: 3px 0 0; font-size: 14px; line-height: 1.3; overflow-wrap: anywhere; }
+.movie-content-arrow { display: grid; justify-items: center; gap: 7px; color: var(--dr-blue); font: 11px/1.2 "IBM Plex Mono", monospace; text-align: center; }
+.movie-content-arrow .dr-arrow { color: var(--dr-blue); font-size: 32px; }
+.movie-content-encoder { display: grid; justify-items: center; gap: 12px; text-align: center; }
+.movie-content-encoder .movie-content-kicker { margin: 0; }
+.movie-content-encoder h3 { margin: 0; color: var(--dr-blue); font-size: 20px; line-height: 1.2; }
+.movie-content-prefix { width: 100%; padding: 9px; border: 1px solid var(--dr-line); color: var(--dr-blue); font: 14px/1.2 "IBM Plex Mono", monospace; }
+.movie-content-processing { color: #66717b; font-size: 12px !important; line-height: 1.45 !important; white-space: pre-line; }
+.movie-content-output { display: grid; justify-items: center; gap: 12px; text-align: center; }
+.movie-content-output > .movie-content-kicker { justify-self: stretch; text-align: left; }
+.movie-content-output .dr-vector { justify-content: center; flex-wrap: wrap; }
+.movie-content-output .dr-cell { width: 16px; height: 17px; }
+.movie-content-encoding .movie-content-vector-label { margin: 0; color: var(--dr-amber); font: italic 34px/1 "Newsreader", serif; }
+.movie-content-vector-label sub { font-size: .58em; }
+.movie-content-vector-dimensions { color: #66717b; font-size: 12px !important; line-height: 1.3 !important; }
+@media (max-width: 920px) {
+  .movie-content-flow { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .movie-content-record-body { grid-template-columns: 104px minmax(0, 1fr); }
+  .movie-content-arrow { transform: rotate(90deg); }
+  .movie-content-arrow > span:not(.dr-arrow) { display: none; }
+}
+@media print {
+  .embedding-resource-layout, .movie-content-flow { break-inside: avoid; }
+}

@@ -1,0 +1,16 @@
+.recjpq-ann-panel { width: 100%; }
+.ann-recommendation { font-size: 21px; line-height: 1.35; margin: 0 0 .5rem; }
+.ann-tradeoff { font-size: 15px; line-height: 1.4; margin: 0; color: #697276; }
+.ann-pq-flow { display: grid; grid-template-columns: 1fr 35px 1.3fr 45px 1.2fr; align-items: center; gap: .7rem; margin: 2rem 0 1rem; }
+.ann-pq-block { border: 1px solid #00518a; padding: .8rem; min-height: 90px; display: grid; place-content: center; text-align: center; color: #00518a; font-size: 18px; }
+.ann-pq-representation { background: #e3edf3; }
+.ann-pq-codes { display: flex; justify-content: center; gap: .25rem; margin-top: .5rem; }
+.ann-pq-codes span { padding: .1rem .6rem; border: 1px solid #93aaa7; font-size: 14px; }
+.ann-pq-arrow, .ann-pq-proposed-arrow { text-align: center; font-size: 30px; color: #00518a; }
+.ann-pq-proposed { border-style: dashed; border-color: #925d1b; color: #925d1b; }
+.ann-pq-proposed-arrow { color: #925d1b; }
+.ann-pq-explanation { font-size: 16px; line-height: 1.35; margin: 0; }
+.ann-research { border-top: 1px solid #cfcac0; margin-top: 1.5rem; padding-top: .8rem; }
+.ann-hypothesis { font-size: 19px; line-height: 1.35; margin: 0 0 .4rem; }
+.ann-qualification { font-size: 15px; line-height: 1.35; color: #925d1b; margin: 0; }
+@media print { .ann-pq-representation { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }

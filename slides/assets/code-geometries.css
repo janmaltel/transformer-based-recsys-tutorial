@@ -1,0 +1,28 @@
+.code-geometry-lanes { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
+.code-geometry-lane + .code-geometry-lane { border-left:1px solid var(--line); padding-left:2.5rem; }
+.code-geometry-analogy { font-size:17px; margin:0 0 1rem; }
+.code-geometry-parts { display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; text-align:center; }
+.code-geometry-part { display:grid; justify-items:center; gap:.2rem; }
+.code-down { color:#00518a; font-size:20px; }
+.code-mini-vector, .code-full-vector { display:flex; width:100%; height:32px; }
+.code-mini-vector span, .code-full-vector span { flex:1; border:1px solid #00518a; }
+.code-part-0 .code-mini-vector, .code-full-vector .code-part-0 { background:#d6e7f2; }
+.code-part-1 .code-mini-vector, .code-full-vector .code-part-1 { background:#adcbdc; }
+.code-part-2 .code-mini-vector, .code-full-vector .code-part-2 { background:#7eabc5; }
+.code-part-label { font-size:14px; }
+.code-geometry-result { font-size:16px; text-align:center; margin:1rem 0 .5rem; color:#00518a; }
+.code-geometry-meaning { font-size:15px; line-height:1.35; margin:.8rem 0 0; }
+.code-correction-map { height:170px; display:block; }
+.code-map-path { fill:none; stroke:#00518a; stroke-width:2.5; }
+.code-map-point { fill:#00518a; }
+.code-map-target { fill:#f8e6cd; stroke:#925d1b; stroke-width:2; }
+.code-map-label { fill:#00518a; font:15px "IBM Plex Sans",sans-serif; }
+@media print { .code-mini-vector, .code-full-vector { print-color-adjust:exact; -webkit-print-color-adjust:exact; } }
+
+.code-geometries .gen-takeaway { margin-top:.8rem; font-size:19px; }
+
+.code-map-stop { fill:var(--paper, #f9f7f2); stroke:#00518a; stroke-width:1.5; }
+.code-map-number { fill:#00518a; text-anchor:middle; font:14px "IBM Plex Mono", monospace; }
+.code-map-legend { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; font-size:13px; color:#00518a; }
+.code-map-legend > div { display:flex; align-items:baseline; gap:.35rem; }
+.code-map-legend strong { font-family:"IBM Plex Mono",monospace; }

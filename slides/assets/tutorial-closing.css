@@ -1,0 +1,49 @@
+/* Closing content follows the deck's flat, scientific typography. */
+#tutorial-recap .scaling-copy-only .scaling-prose { gap: 6px; }
+#tutorial-recap .scaling-copy-only .scaling-point {
+  grid-template-columns: 180px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 26px;
+  padding-top: 9px;
+}
+#tutorial-recap .scaling-copy-only .scaling-point h3 {
+  margin: 0;
+  font: 600 22px/1.25 var(--font-body);
+}
+#tutorial-recap .scaling-copy-only .scaling-point p {
+  font: 400 24px/1.28 var(--font-body);
+}
+
+.paper-references {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.paper-reference {
+  padding: 6px 0;
+  border-top: 1px solid var(--border-hairline);
+  break-inside: avoid;
+}
+.paper-reference-authors {
+  margin: 0 0 3px;
+  color: var(--text-muted);
+  font: 400 16px/1.25 var(--font-body);
+}
+.paper-reference-title {
+  display: block;
+  width: fit-content;
+  color: var(--text-accent);
+  font: 500 24px/1.25 var(--font-body);
+  text-decoration: none;
+  text-wrap: pretty;
+}
+.paper-reference-title:hover { text-decoration: underline; }
+.paper-reference-title:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 4px;
+}
+
+@media print {
+  #tutorial-recap .scaling-point,
+  .paper-reference { break-inside: avoid; }
+}

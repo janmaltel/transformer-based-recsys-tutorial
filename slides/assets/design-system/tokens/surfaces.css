@@ -1,0 +1,28 @@
+/* Surfaces — radius, borders, shadow. The system is essentially square: a
+   printed figure has no rounded corners and no drop shadow. The only shadow in
+   the system lifts the slide off the desk in on-screen preview; it never
+   appears inside a figure, and never prints. */
+:root{
+--radius-none:0px;
+--radius-hair:1px;
+--radius-chip:2px;
+--radius-pill:999px;
+
+--border-width-hairline:1px;
+--border-width-strong:2px;
+--border-width-rule:1px;
+
+--shadow-none:none;
+--shadow-frame:0 2px 28px rgba(40,32,20,.18);
+--shadow-inset-cell:inset 0 0 0 .5px rgba(22,25,29,.06);
+
+/* --- Motion. Builds reveal, they do not animate. Dim-and-highlight only:
+       context stays on screen at reduced contrast while the current idea
+       comes forward. No slide transitions, no easing theatrics. --- */
+--dur-instant:0ms;        /* @kind other */
+--dur-build:180ms;        /* @kind other */
+--dur-dim:240ms;          /* @kind other */
+--ease-build:cubic-bezier(.4,0,.2,1); /* @kind other */
+--dim-opacity:.34;        /* @kind other */
+--dim-filter:saturate(.15); /* @kind other */
+}

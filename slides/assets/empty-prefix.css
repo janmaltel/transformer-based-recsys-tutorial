@@ -1,0 +1,60 @@
+.empty-prefix {
+  flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 10px; padding-top: 7px;
+  font-family: "IBM Plex Sans", sans-serif; color: #303841;
+}
+.empty-prefix .ep-body { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.empty-prefix [data-build-step] { transition: opacity 180ms ease; }
+.empty-prefix [data-build-step]:not(.is-revealed) { visibility: hidden; }
+.empty-prefix [data-build-step].is-revealed { opacity: 1; }
+.empty-prefix h3 { margin: 0 0 8px; font-size: 21px; font-weight: 500; }
+.empty-prefix p { margin: 0; font-size: 17px; line-height: 1.35; }
+.empty-prefix .ep-note { flex: none; margin: 0; padding-top: 9px; border-top: 1px solid #d7d3c9; font-size: 14px; color: #66717b; }
+.ep-comparisons { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.ep-recipe + .ep-recipe { border-left: 1px solid #d7d3c9; padding-left: 32px; }
+.ep-recipe .ep-point { min-height: 112px; }
+.ep-supervision { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 14px; }
+.ep-supervision td, .ep-supervision th { padding: 10px 5px; border-bottom: 1px solid #d7d3c9; text-align: center; }
+.ep-supervision th { text-align: left; font-size: 12px; font-weight: 500; color: #66717b; }
+.ep-first-column { background: #edf3f8; color: #0b4f87; }
+.ep-supervision .ep-zero { color: #78808a; font-weight: 600; }
+.ep-supervision .ep-active { color: #0b4f87; font-weight: 700; }
+.ep-context-flow { font-size: 24px; color: #0b4f87; padding: 5px 0 12px; }
+.ep-conclusion .ep-point { display: grid; grid-template-columns: 210px 1fr; gap: 28px; }
+.ep-frequency-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+.empty-prefix .ep-label { color: #66717b; font: 14px "IBM Plex Mono", monospace; margin-bottom: 16px; }
+.ep-history-row { display: flex; align-items: center; gap: 11px; margin-bottom: 4px; }
+.ep-user { font: 13px "IBM Plex Mono", monospace; color: #78808a; width: 28px; }
+.ep-token { min-width: 34px; padding: 3px 9px; border: 1px solid #d7d3c9; text-align: center; font: 14px "IBM Plex Mono", monospace; }
+.ep-first { background: #edf3f8; border-color: #0b4f87; color: #0b4f87; }
+.ep-arrow, .ep-flow-arrow { color: #78808a; }
+.ep-legend { display: flex; gap: 25px; font-size: 14px; margin-bottom: 8px; }
+.ep-first-key { color: #0b4f87; }
+.ep-all-key { color: #956018; }
+.ep-count-row { display: grid; grid-template-columns: 25px 1fr; align-items: center; gap: 12px; margin-bottom: 8px; }
+.ep-tracks { padding-right: 36px; }
+.ep-bar-track { position: relative; display: flex; gap: 8px; align-items: center; height: 16px; }
+.ep-bar { display: block; height: 11px; flex: none; }
+.ep-bar-first { background: #0b4f87; }
+.ep-bar-all { background: #b17a27; }
+.ep-bar-value { font: 13px "IBM Plex Mono", monospace; }
+.ep-prior-summary { display: flex; align-items: center; gap: 40px; padding-top: 10px; border-top: 1px solid #d7d3c9; }
+.ep-equation { font-size: 23px; color: #0b4f87; }
+.ep-probabilities { font: 17px "IBM Plex Mono", monospace; white-space: pre; }
+.ep-prior-points { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.ep-empty-prefix-prior .ep-body { gap: 12px; }
+.ep-prior-points h3 { font-size: 19px; }
+.ep-prior-points p { font-size: 16px; }
+.ep-overlap { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.ep-overlap th, .ep-overlap td { padding: 22px 12px; border-bottom: 1px solid #d7d3c9; text-align: center; }
+.ep-overlap th:first-child { width: 46%; text-align: left; padding-left: 0; }
+.ep-overlap thead th { font-size: 17px; font-weight: 500; color: #66717b; }
+.ep-overlap tbody th { font-size: 22px; font-weight: 500; }
+.ep-overlap td { font: 28px "IBM Plex Mono", monospace; color: #0b4f87; }
+.ep-empty-prefix-checkpoint .ep-body { gap: 30px; }
+@media print {
+  .empty-prefix [data-build-step] { visibility: visible !important; opacity: 1 !important; }
+  .slide-scaling .empty-prefix .katex-mathml { display: inline !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .empty-prefix [data-build-step] { transition: none; }
+}
