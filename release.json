@@ -2,7 +2,7 @@
   "files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "README.md": "b62bad9eac07636d67301dcdb5a92711370051e0fddc8bd1e42c24a2b233f002",
-    "index.html": "8b1a89a7e717488a910709dfaccbf9895d33e6650d8069f0b7fbf6ef26b688e3",
+    "index.html": "168c848289f72d338eb3f26468e307dc29c60e6b0105814bae9602c68c0336ed",
     "site.css": "b68c715659791405dc2375877d8f29a05399381110372f460840f12a9fbf4dd3",
     "slides/assets/canonical-movie-example.js": "f906a4d9bdf839aaf9175306b1acdee0ada7d1a8f5f4532606556f7ec6fc338e",
     "slides/assets/catalogue-scale-visual.js": "320354cf6c068bc81d96184e3a5d5a28453325c601aa2ffd3913d10b4e84723e",
@@ -3986,6 +3986,6 @@
     "slides/slides/why-movielens-here.js": "a6f5fcb3ba1948cb0f0fd8a3924b69362d0092ba3c64bedd86eeac006fdc1463",
     "slides/slides/working-definition.js": "196c81fe0bd6ae028dc66b1bc0cef294bf93bfdbed8f17e6a4b24226118d21f9"
   },
-  "release": "99e9a2cccc7ee0c98b2c",
+  "release": "fe9b96673561fd6c9a2c",
   "schema": 1
 }
