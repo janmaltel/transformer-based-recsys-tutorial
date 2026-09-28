@@ -17,7 +17,14 @@
     if (serving.kind === "nearest-warm") {
       result.summary = "SASRec · " + epochs + " epochs · " + serving.coldCount + " unseen";
       result.print = "NearestWarmRecommender · SASRec · " + epochs + " epochs";
+      if (serving.baseModelId === "gsasrec-ml1m") {
+        result.summary = "gSASRec · first playground · " + serving.coldCount + " outside catalog";
+        result.print = "Nearest-warm · original playground gSASRec";
+      }
       result.note = "Cold/text → nearest warm ID; SASRec uses the sequence. Cold candidates share their proxy’s vector and score.";
+    }
+    if (serving.baseModelId) {
+      result.note = "Cold/text → nearest warm ID; gSASRec uses the sequence. Cold candidates share proxy scores. Cold = outside the base catalog.";
     }
     if (serving.kind === "content-knn") {
       result.summary = "Cosine · last input · " + manifest.config.embeddingDim + "D";

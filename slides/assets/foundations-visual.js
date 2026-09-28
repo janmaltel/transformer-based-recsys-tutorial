@@ -159,7 +159,8 @@
       eventLabel.appendChild(rating);
       card.appendChild(eventLabel);
       var image = element("img", "");
-      image.src = window.GSASRecPosterAssets.urlForOriginalId(movie.id);
+      var posterUrl = window.GSASRecPosterAssets.urlForOriginalId(movie.id);
+      if (posterUrl) image.src = posterUrl;
       image.alt = movie.title;
       card.appendChild(image);
       card.appendChild(element("figcaption", "", movie.title));

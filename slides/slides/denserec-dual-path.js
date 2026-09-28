@@ -6,7 +6,7 @@
     type: "sasrec",
     eyebrow: "Block 2 · DenseRec",
     title: "DenseRec: ID and content paths",
-    subtitle: "Both paths produce a vector in the same recommendation space.",
+    subtitle: "Continuous mapping from content to the ID embedding space; nearest-warm substitution uses a discrete mapping.",
     sasrecVisual: "denserec-dual-path",
     buildSteps: 3,
     scaling: {

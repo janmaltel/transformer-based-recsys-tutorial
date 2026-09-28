@@ -1,6 +1,8 @@
 (function (root) {
   "use strict";
   var ui = root.SASRecPlayground.movieUI;
+  // Teaching examples are a view choice, independent of model/poster artifacts.
+  var exampleOriginalIds = [398, 1877, 3205, 3881];
 
   function servingFor(manifest) {
     return manifest.serving || { knownCount: manifest.config.numItems, coldCount: 0,
@@ -27,14 +29,17 @@
     search.appendChild(textInputs);
 
     function renderTextInputs() {
+      var inputIds = Object.keys(manifest.textInputs || {}).filter(function (id) {
+        return manifest.textInputs[id].text !== "mafia";
+      });
       textInputs.replaceChildren(ui.element('span', 'sasrec-text-inputs-label', 'Or add a text input'));
-      Object.keys(manifest.textInputs || {}).forEach(function (id) {
+      inputIds.forEach(function (id) {
         var button = ui.element('button', 'sasrec-text-input-button', manifest.textInputs[id].text);
         button.type = 'button'; button.dataset.addSas = id;
         button.setAttribute('aria-label', 'Add text input ' + manifest.textInputs[id].text);
         textInputs.appendChild(button);
       });
-      textInputs.hidden = !Object.keys(manifest.textInputs || {}).length;
+      textInputs.hidden = !inputIds.length;
     }
 
     var heading = host.querySelector(".sasrec-recommendations .sasrec-lane-heading");
@@ -63,12 +68,23 @@
     }
 
     function searchCatalog(query, limit) {
-      if (!query.trim()) return checkbox.checked ? serving.demoColdItemIds.map(result) : [];
+      if (!query.trim()) {
+        if (!cold.size) return [];
+        var examples = exampleOriginalIds.map(function (originalId) {
+          return manifest.itemIds.originalToCanonical[originalId];
+        });
+        var external = manifest.catalogExtension;
+        if (external) examples = [external.canonicalId].concat(examples.filter(function (id) {
+          return id !== external.canonicalId;
+        }));
+        return examples.filter(function (id) { return cold.has(id); }).slice(0, limit).map(result);
+      }
       if (!manifest.catalog) return root.GSASRecBrowser.movieMetadata.search(query, manifest.config.numItems)
         .filter(function (item) { return root.GSASRecBrowser.supportsItem(manifest, item.sasId); }).slice(0, limit);
       return root.GSASRecBrowser.fuzzySearch.searchItems(manifest.catalog.items, query,
         manifest.config.numItems, function (original) { return manifest.itemIds.originalToCanonical[original]; })
-        .filter(function (item) { return !checkbox.checked || cold.has(item.sasId); }).slice(0, limit);
+        .filter(function (item) { return !checkbox.checked || cold.has(item.sasId); }).slice(0, limit)
+        .map(function (item) { return result(item.sasId); });
     }
 
     return {

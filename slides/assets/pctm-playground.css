@@ -55,16 +55,7 @@
   order: 1;
   flex-basis: 100%;
   color: var(--playground-muted);
-  font: 500 0.55rem/1.4 var(--font-mono);
+  font: 500 var(--fs-reference, 12px)/1.4 var(--font-mono);
   text-decoration: none;
 }
 .pctm-model-source:hover { text-decoration: underline; }
-@media (max-width: 760px) {
-  .pctm-playground .pctm-example-controls {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-top: 0.7rem;
-  }
-  .pctm-examples-label, .pctm-example-caption { width: 100%; }
-}

@@ -13,7 +13,7 @@
     "topics": [
       "Sequential recommendation",
       "SASRec architecture",
-      "Training and retrieval"
+      "Training"
     ]
   });
 })();

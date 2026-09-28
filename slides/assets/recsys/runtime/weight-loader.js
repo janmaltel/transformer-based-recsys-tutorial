@@ -45,6 +45,7 @@
       throw new Error("Model byte length mismatch for " + modelId);
     }
     var floats = new Float32Array(bytes.buffer, bytes.byteOffset, bytes.byteLength / 4);
+    var extendedTensor = null;
     var model = {
       manifest: manifest,
       tensor: function (name) {
@@ -52,7 +53,18 @@
         if (!spec) {
           throw new Error("Unknown tensor: " + name);
         }
-        return floats.subarray(spec.offset, spec.offset + spec.length);
+        var base = floats.subarray(spec.offset, spec.offset + spec.length);
+        var extra = manifest.catalogExtension;
+        if (!extra || extra.tensorName !== name) return base;
+        if (!extendedTensor) {
+          if (base.length !== extra.nativeId * manifest.config.embeddingDim) {
+            throw new Error("External movie row does not follow the base table");
+          }
+          extendedTensor = new Float32Array(base.length + extra.embedding.length);
+          extendedTensor.set(base);
+          extendedTensor.set(extra.embedding, base.length);
+        }
+        return extendedTensor;
       }
     };
     cache.set(modelId, model);

@@ -22,7 +22,7 @@
   function frame(content, slide) {
     var host = el(content, "div", "denserec dr-" + slide.id);
     var body = el(host, "div", "dr-body");
-    copy(host, "p", "dr-note", slide, "/scaling/note", slide.scaling.note);
+    if (slide.scaling.note) copy(host, "p", "dr-note", slide, "/scaling/note", slide.scaling.note);
     return { host: host, body: body };
   }
   function formula(parent, slide) {

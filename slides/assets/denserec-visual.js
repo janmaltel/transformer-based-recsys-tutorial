@@ -20,7 +20,7 @@
     var cold = k.stage(k.el(columns, "section", "dr-new-item"), 1);
     k.point(cold, slide, 1);
     var arrival = k.el(cold, "div", "dr-arrival");
-    k.poster(arrival, example.recommendations[0]);
+    k.poster(arrival, slide.scaling.unseenItem);
     var missing = k.el(arrival, "div", "dr-missing");
     k.math(missing, "E^{\\mathrm{ID}}[i_{\\mathrm{new}}]");
     k.el(missing, "span", "dr-missing-row", "unavailable");

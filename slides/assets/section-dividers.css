@@ -59,15 +59,3 @@
   line-height: var(--lh-snug);
   text-wrap: pretty;
 }
-
-@media (max-width: 900px) {
-  .section-divider-layout { grid-template-columns: 1fr; gap: var(--sp-6); }
-  .section-divider-title,
-  .section-kind-block .section-divider-title {
-    max-width: 28ch;
-    font-size: clamp(32px, 5.6vw, 52px);
-    text-wrap: pretty;
-  }
-  .section-divider-kicker { margin-bottom: var(--sp-3); }
-  .section-divider-topic { padding: var(--sp-3) 0; font-size: 18px; }
-}

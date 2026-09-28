@@ -19,7 +19,7 @@
   function render(content) {
     var kit = root.DiagramKit, d = root.SASRecDetailKit, example = root.TrainingDataExample;
     var canvas = kit.create(content, "MovieLens rating inclusion and training sequences",
-      "An illustrative user's ratings include a two-star rating for Heat. The current checkpoint treats all rating events as interactions. A positive-feedback alternative keeps ratings of at least four stars and excludes Heat. The remaining events form histories and next retained-item targets after support filtering and temporal preparation. The alternative is not the bundled checkpoint's training recipe.",
+      "An illustrative user's ratings include a two-star rating for Heat. Keeping all rating events defines a recommender for the next reviewed movie. Keeping ratings of at least four stars excludes Heat and defines a recommender for the next liked movie. Each sequence shows a history and its next retained-item target.",
       { className: "movielens-training", height: 580 });
     var draw = canvas.draw;
     var raw = kit.stage(draw, 0, "rating-events");
@@ -35,24 +35,15 @@
       });
     });
     var all = kit.stage(draw, 1, "rating-all");
-    d.label(all, "CURRENT CHECKPOINT", 28, 282);
-    d.text(all, "All rating events", 28, 310, { size: 22, weight: 600 });
+    d.text(all, "All rating events", 28, 282, { size: 22, weight: 600 });
+    d.text(all, "→ “What is the next reviewed movie?” recommender", 28, 316, { size: 18 });
     sequence(kit, d, all, example.retainRatings(1), 28, 378, 105);
 
     var positive = kit.stage(draw, 2, "rating-positive");
     positive.line(600, 282, 600, 493).stroke({ color: kit.colors.line, width: 1 });
-    d.label(positive, "POSITIVE-FEEDBACK VARIANT", 655, 282);
-    d.text(positive, "Keep ratings ≥ 4", 655, 310, { size: 22, weight: 600 });
+    d.text(positive, "Keep ratings ≥ 4", 655, 282, { size: 22, weight: 600 });
+    d.text(positive, "→ “What is the next liked movie?” recommender", 655, 316, { size: 18 });
     sequence(kit, d, positive, example.retainRatings(4), 655, 378, 130);
-    d.text(positive, "A different training set; requires retraining", 655, 498, {
-      size: 16, color: kit.colors.highlightDark
-    });
-
-    var preparation = kit.stage(draw, 3, "rating-preparation");
-    preparation.line(28, 532, 1172, 532).stroke({ color: kit.colors.line, width: 1 });
-    d.text(preparation, "After event selection: k-core filtering · time ordering and splits · training examples", 28, 548, {
-      size: 17, color: kit.colors.muted
-    });
   }
   parts["movielens-training"] = render;
 })(typeof globalThis !== "undefined" ? globalThis : window);

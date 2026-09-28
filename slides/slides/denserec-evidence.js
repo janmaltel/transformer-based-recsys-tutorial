@@ -45,7 +45,7 @@
         },
         {
           label: "0.4–2.4% of successful hits",
-          body: "Only this fraction had cold targets. The authors suggest much of the gain comes from representing cold items in histories."
+          body: "Only this fraction had cold targets. Much of the gain may come from representing cold items in histories."
         }
       ],
       formula: "Main comparison: \\(p_{\\mathrm{dense}}=0.5\\). Baseline hyperparameters transferred to DenseRec.",

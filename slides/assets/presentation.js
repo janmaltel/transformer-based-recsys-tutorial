@@ -3,9 +3,6 @@
 
   var slides = window.PresentationSlides || [];
   var deck = document.querySelector("#deck");
-  var counter = document.querySelector(".counter");
-  var progress = document.querySelector(".progress span");
-  var fullscreenButton = document.querySelector('[data-action="fullscreen"]');
   var current = 0;
   var buildStage = 0;
   var editorRefs = window.PresentationEditorRefs;
@@ -62,7 +59,7 @@
   function renderRepository(slide, content) {
     var repository = slide.repository;
     var resource = element("div", "title-repository");
-    resource.appendChild(element("span", "title-repository-label", "Repository"));
+    resource.appendChild(element("span", "title-repository-label", "Tutorial site"));
     var link = element("a", "title-repository-link", repository.label || repository.url);
     link.href = repository.url;
     if (repository.label) authorText(link, slide, "/repository/label");
@@ -337,8 +334,6 @@
       slide.classList.toggle("is-active", active);
       slide.setAttribute("aria-hidden", String(!active));
     });
-    counter.textContent = current + 1 + " / " + slides.length;
-    progress.style.width = ((current + 1) / slides.length) * 100 + "%";
     if (updateHash) history.replaceState(null, "", "#" + slides[current].id);
     document.title = slides[current].title + " — RecSys 2026";
     applyBuildState();
@@ -360,11 +355,6 @@
       return;
     }
     show(current + delta, true);
-  }
-
-  function setPresenting(active) {
-    document.documentElement.classList.toggle("is-presenting", active);
-    fullscreenButton.textContent = active ? "Exit fullscreen" : "Fullscreen";
   }
 
   function clone(value) {
@@ -396,29 +386,14 @@
   if (window.PresentationElementOverridesRuntime) {
     window.PresentationElementOverridesRuntime.apply(deck);
   }
+  if (window.PresentationOutline) {
+    window.PresentationOutline.mount(slides, function (index) {
+      buildStage = 0;
+      show(index, true);
+      deck.focus({ preventScroll: true });
+    });
+  }
   show(indexFromHash(), !window.location.hash);
-
-  document.addEventListener("click", function (event) {
-    var button = event.target.closest("[data-action]");
-    if (!button) return;
-    if (button.dataset.action === "previous") move(-1);
-    if (button.dataset.action === "next") move(1);
-    if (button.dataset.action === "fullscreen") {
-      if (document.documentElement.classList.contains("is-presenting")) {
-        setPresenting(false);
-        if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen();
-      } else {
-        setPresenting(true);
-        if (document.documentElement.requestFullscreen) {
-          document.documentElement.requestFullscreen().catch(function () {});
-        }
-      }
-    }
-  });
-
-  document.addEventListener("fullscreenchange", function () {
-    setPresenting(Boolean(document.fullscreenElement));
-  });
 
   function capturesDeckKeyboard(event) {
     var path = event.composedPath ? event.composedPath() : [event.target];
@@ -435,13 +410,6 @@
 
   document.addEventListener("keydown", function (event) {
     if (event.defaultPrevented) return;
-    if (event.key === "Escape" && document.documentElement.classList.contains("is-presenting")) {
-      setPresenting(false);
-      if (document.fullscreenElement && document.exitFullscreen) {
-        document.exitFullscreen().catch(function () {});
-      }
-      return;
-    }
     if (capturesDeckKeyboard(event)) return;
     if (event.key === "ArrowRight" && event.shiftKey) {
       event.preventDefault();

@@ -50,12 +50,6 @@
 .movie-content-encoding .movie-content-vector-label { margin: 0; color: var(--dr-amber); font: italic 34px/1 "Newsreader", serif; }
 .movie-content-vector-label sub { font-size: .58em; }
 .movie-content-vector-dimensions { color: #66717b; font-size: 12px !important; line-height: 1.3 !important; }
-@media (max-width: 920px) {
-  .movie-content-flow { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .movie-content-record-body { grid-template-columns: 104px minmax(0, 1fr); }
-  .movie-content-arrow { transform: rotate(90deg); }
-  .movie-content-arrow > span:not(.dr-arrow) { display: none; }
-}
 @media print {
   .embedding-resource-layout, .movie-content-flow { break-inside: avoid; }
 }

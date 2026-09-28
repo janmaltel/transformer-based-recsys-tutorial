@@ -12,6 +12,7 @@
   --accent-dark: var(--amber-700);
   --teal: var(--blue-600);
   --shadow: var(--shadow-frame);
+  --fs-reference: 12px;
   color-scheme: light;
   font-family: var(--font-body);
 }
@@ -27,40 +28,14 @@ body {
 a { color: var(--link-rest); }
 a:hover { color: var(--link-hover); }
 
-.topbar,
-.controls {
-  min-height: 3rem;
-  gap: var(--sp-4);
-  padding: var(--sp-4) clamp(var(--sp-5), 3vw, var(--sp-8));
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
-  letter-spacing: .06em;
-}
-
-.brand {
-  gap: 0;
-  color: var(--text-accent);
-  letter-spacing: var(--ls-eyebrow);
-}
-
-.brand i { display: none; }
-
-.counter { font-variant-numeric: tabular-nums; }
-
-.deck {
-  padding: var(--sp-3) clamp(var(--sp-5), 3vw, var(--sp-8));
-}
-
 .slide {
-  width: min(94vw, calc((100vh - 7.5rem) * 16 / 9), var(--slide-w));
-  height: auto;
+  width: var(--slide-w);
+  height: var(--slide-h);
   aspect-ratio: 16 / 9;
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-none);
   background: var(--surface-page);
-  box-shadow: var(--shadow-frame);
+  box-shadow: none;
   color: var(--text-primary);
 }
 
@@ -184,11 +159,13 @@ a:hover { color: var(--link-hover); }
   background: transparent;
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: var(--fs-micro);
   font-weight: var(--fw-regular);
   letter-spacing: .05em;
   line-height: var(--lh-figure);
 }
+
+/* Keep citations readable across the older slide-specific footer rules. */
+.slide .slide-footer { font-size: var(--fs-reference); }
 
 .slide-footer-citation {
   max-width: 100%;
@@ -646,7 +623,6 @@ a:hover { color: var(--link-hover); }
   border-left: 0;
   border-top: 1px solid var(--border-hairline);
   color: var(--text-muted);
-  font-size: var(--fs-micro);
   font-weight: var(--fw-regular);
 }
 
@@ -734,73 +710,13 @@ a:hover { color: var(--link-hover); }
   padding: 0;
 }
 
-/* Controls belong to the preview shell, not to the slide design. */
-.controls button {
-  min-height: 2rem;
-  border: 1px solid var(--border-mid);
-  border-radius: var(--radius-none);
-  padding: var(--sp-3) var(--sp-4);
-  background: var(--surface-page);
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
-  cursor: pointer;
-}
-
-.controls button:hover {
-  border-color: var(--border-accent);
-  color: var(--text-primary);
-}
-
-.controls button:focus-visible,
 .slide :focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
-.progress {
-  height: 2px;
-  border-radius: 0;
-  background: var(--border-hairline);
-}
-
-.progress span {
-  background: var(--blue-600);
-  transition: width var(--dur-build) linear;
-}
-
-@media (max-width: 760px) {
-  .slide {
-    width: 100%;
-    min-height: calc(100vh - 7rem);
-    aspect-ratio: auto;
-    overflow: auto;
-  }
-
-  .slide-content,
-  .slide-title .slide-content,
-  .slide-definition .slide-content,
-  .slide-goals .slide-content,
-  .slide-guiding .slide-content,
-  .slide-foundation .slide-content,
-  .slide-sasrec .slide-content,
-  .slide-playground .slide-content {
-    min-height: 720px;
-    padding: var(--sp-7) var(--sp-6);
-  }
-
-  .title-copy h1,
-  .slide-title .title-copy h1 { font-size: var(--fs-display); }
-
-  .section-layout { grid-template-columns: 1fr; gap: var(--sp-7); }
-  .section-number { font-size: 92px; }
-  .presenter-list { flex-direction: column; gap: var(--sp-4); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  [data-build-step],
-  .progress span { transition: none !important; }
+  [data-build-step] { transition: none !important; }
 }
 
 @media print {

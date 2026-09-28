@@ -9,12 +9,12 @@
 .recjpq-compression-comparison { min-width: 0; }
 .recjpq-compression-metric { margin-bottom: .8rem; }
 .recjpq-compression-metric > span { font-size: 12px; color: #697276; }
-.recjpq-compression-pair { display: flex; align-items: center; gap: .7rem; font-size: clamp(1.3rem, 2.5vw, 2.1rem); font-weight: 700; line-height: 1.25; white-space: nowrap; }
+.recjpq-compression-pair { display: flex; align-items: center; gap: .7rem; font-size: 32px; font-weight: 700; line-height: 1.25; white-space: nowrap; }
 .recjpq-compression-before { color: #697276; }
 .recjpq-compression-after { display: flex; gap: .7rem; color: #087f73; align-items: center; }
 .recjpq-compression-arrow { font-size: 1.25rem; color: #697276; }
 .recjpq-compression-savings { margin: .6rem 0 .8rem; }
-.recjpq-compression-savings strong { display: block; color: #00518a; font-size: clamp(2rem, 3.9vw, 3.4rem); line-height: 1.1; }
+.recjpq-compression-savings strong { display: block; color: #00518a; font-size: 49.92px; line-height: 1.1; }
 .recjpq-compression-savings > span { font-size: 12px; color: #697276; }
 .recjpq-compression-bar-row { display: grid; grid-template-columns: 4rem 1fr; gap: .6rem; align-items: center; margin: .4rem 0; font-size: 12px; }
 .recjpq-compression-track { height: 17px; position: relative; }

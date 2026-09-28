@@ -1,6 +1,6 @@
 .slide-scaling .scaling-embedding-motivation { grid-template-columns: 1.45fr 1fr; gap: 1.4rem; }
 .slide-scaling .scaling-embedding-motivation .scaling-prose { gap: .6rem; }
-.slide-scaling .scaling-embedding-motivation .scaling-point p { font-size: clamp(.8rem, 1.1vw, 1.05rem); }
+.slide-scaling .scaling-embedding-motivation .scaling-point p { font-size: 14.08px; }
 .scaling-embedding-motivation:not(:has(.recjpq-memory-table.is-revealed)) .recjpq-memory-architecture { transform: translateX(-145px); }
 .scaling-embedding-motivation:has(.recjpq-memory-calculator.is-revealed) .scaling-prose > .scaling-point:first-child { display: none; }
 .recjpq-memory-focus { fill: #e2a264; fill-opacity: .22; stroke: #a45d26; stroke-width: 2.5; }

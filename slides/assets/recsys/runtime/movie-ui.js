@@ -21,6 +21,7 @@
     return {
       sasId: ids.sas,
       originalId: ids.original,
+      namespace: movie && movie.namespace,
       title: movie ? movie.title : "Movie " + ids.original,
       year: movie && movie.year ? String(movie.year) : "",
       genres: movie ? movie.genres || [] : [],
@@ -37,6 +38,7 @@
     return {
       sasId: Number(result.sasId),
       originalId: Number(result.originalId),
+      namespace: result.namespace,
       title: result.title,
       year: result.year ? String(result.year) : "",
       genres: result.genres || [],
@@ -84,6 +86,7 @@
     var year = title.querySelector(".sasrec-year");
     if (!name || !year || !title.isConnected || !title.clientWidth) return;
     year.hidden = false;
+    if (title.classList.contains("sasrec-external-title")) return;
     year.style.visibility = "hidden";
     var style = root.getComputedStyle(title);
     var gap = parseFloat(style.columnGap || style.gap) || 0;
@@ -108,7 +111,8 @@
 
   function copy(item) {
     var shell = element("span", "sasrec-movie-copy");
-    var title = element("strong", "sasrec-movie-title");
+    var title = element("strong", "sasrec-movie-title" +
+      (item.namespace === "tutorial-external" ? " sasrec-external-title" : ""));
     var name = element("span", "sasrec-movie-name", item.title);
     var year = item.year
       ? element("span", "sasrec-year", "(" + item.year + ")")

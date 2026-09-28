@@ -163,8 +163,10 @@
   }
 
   function infer(modelId, rawHistory, options) {
-    var model = root.GSASRecBrowser.loadWeights(modelId);
     options = options || {};
+    var manifest = root.GSASRecModels && root.GSASRecModels[modelId];
+    var model = manifest && manifest.architecture === "nearest-warm-wrapper"
+      ? { manifest: manifest } : root.GSASRecBrowser.loadWeights(modelId);
     if (options.candidateScope && ["all", "cold", "known"].indexOf(options.candidateScope) < 0) {
       throw new Error("Unknown candidate scope");
     }
@@ -175,6 +177,9 @@
     if (options.candidateScope === "known" &&
       (!model.manifest.serving || !model.manifest.serving.knownNativeIds)) {
       throw new Error("This model has no training-item catalog");
+    }
+    if (model.manifest.architecture === "nearest-warm-wrapper") {
+      return root.GSASRecBrowser.inferNearestWarm(model.manifest, rawHistory, options);
     }
     if (model.manifest.architecture === "content-knn") {
       return root.GSASRecBrowser.inferKNN(model, rawHistory, options);

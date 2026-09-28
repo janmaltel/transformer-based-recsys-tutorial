@@ -21,7 +21,7 @@
         },
         {
           label: "Content-only",
-          body: "Only content vectors are used. ID rows stay untrained."
+          body: "Same as “SASRec with content embeddings”. ID rows stay untrained."
         }
       ],
       formula: "\\(z\\sim\\operatorname{Bernoulli}(p_{\\mathrm{dense}}),\\qquad e_i=\\begin{cases}E^{\\mathrm{ID}}[i]&z=0\\\\P(c_i)&z=1\\end{cases}\\)",

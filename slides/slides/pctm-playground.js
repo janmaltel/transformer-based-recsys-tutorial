@@ -13,7 +13,7 @@
       sessionKey: "pctm-sequence",
       scenario: {
         modelId: "pctm-ml1m",
-        history: { ids: [3114, 2571], idSpace: "original" },
+        history: { ids: [2571, 1240, 1], idSpace: "original" },
         topK: 5,
         filterHistory: true
       },
@@ -36,8 +36,8 @@
       },
       examples: [
         { label: "Family films", ids: [34, 2, 1] },
-        { label: "Toy Story 2 → The Matrix", ids: [3114, 2571] },
-        { label: "Reverse order", ids: [2571, 3114] }
+        { label: "Matrix → Terminator → Toy Story", ids: [2571, 1240, 1] },
+        { label: "Reverse order", ids: [1, 1240, 2571] }
       ]
     }
   });

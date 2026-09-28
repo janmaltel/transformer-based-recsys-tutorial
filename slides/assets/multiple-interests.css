@@ -38,9 +38,10 @@
 .interest-ranking { display: flex; flex-wrap: wrap; gap: .1rem .6rem; list-style: none; padding: 0; margin: .2rem 0; font-size: 12px; line-height: 1.4; }
 .interest-ranking li { white-space: nowrap; }
 .interest-links { margin-top: .8rem; }
-.interest-link { fill: none; opacity: .55; }
+.interest-link { fill: none; opacity: .75; }
 .interest-link-0 { stroke: #00518a; }
 .interest-link-1 { stroke: #087f73; }
+.interest-link-2 { stroke: #697681; }
 .interest-source-title { fill: var(--ink); font: 15px "IBM Plex Sans", sans-serif; }
 .interest-source-weight { fill: var(--muted); font: 12px "IBM Plex Mono", monospace; }
 .interest-target-title { fill: var(--ink); font: 15px "IBM Plex Sans", sans-serif; }

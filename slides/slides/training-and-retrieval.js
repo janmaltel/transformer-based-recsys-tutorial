@@ -9,11 +9,11 @@
     "sectionKind": "chapter",
     "sectionNumber": "1.3",
     "eyebrow": "Block 1",
-    "title": "Training and retrieval",
+    "title": "Training",
     "topics": [
       "Interaction logs and next-item supervision",
-      "Loss, batching and optimisation",
-      "Preprocessing and temporal evaluation"
+      "Sampled next-item objective",
+      "Loss, batching and optimisation"
     ]
   });
 })();

@@ -24,9 +24,12 @@ body {
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: minmax(0, 1fr);
   background:
     radial-gradient(circle at 15% 10%, rgb(232 93 63 / 8%), transparent 24rem),
     var(--paper);
@@ -44,45 +47,26 @@ noscript {
   text-align: center;
 }
 
-.topbar,
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.8rem clamp(1rem, 3vw, 2.5rem);
-  color: var(--muted);
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.topbar { justify-content: space-between; }
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.brand i {
-  width: 0.72rem;
-  height: 0.72rem;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 0.3rem rgb(232 93 63 / 13%);
-}
-
 .deck {
+  min-width: 0;
   min-height: 0;
+  overflow: hidden;
+  contain: size;
   display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
-  padding: 0.5rem clamp(1rem, 3vw, 2.5rem);
+  padding: 0;
 }
 
+/* The deck receives focus after an outline jump; slide controls keep their
+   own visible focus rings. */
+.deck:focus { outline: none; }
+
+/* Lay out once at the authored size; scale the finished canvas as a unit. */
 .slide {
-  width: min(94vw, 1500px);
-  height: min(82vh, calc(94vw * 0.5625), 844px);
+  width: var(--slide-w, 1280px);
+  height: var(--slide-h, 720px);
+  transform: scale(var(--slide-scale, 1));
   display: none;
   position: relative;
   overflow: hidden;
@@ -109,13 +93,13 @@ noscript {
 .slide-content {
   width: min(100%, 76rem);
   align-self: center;
-  padding: clamp(2rem, 6vw, 6rem);
+  padding: 76.8px;
 }
 
 .eyebrow {
   margin: 0 0 1.2rem;
   color: var(--teal);
-  font-size: clamp(0.75rem, 1.1vw, 1rem);
+  font-size: 14.08px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -125,44 +109,44 @@ h1,
 h2 {
   max-width: 15ch;
   margin: 0;
-  font-size: clamp(2.4rem, 6.1vw, 6rem);
+  font-size: 78.08px;
   letter-spacing: -0.055em;
   line-height: 0.98;
 }
 
-h2 { font-size: clamp(2.2rem, 5.2vw, 5.2rem); }
+h2 { font-size: 66.56px; }
 
 .subtitle {
-  margin: clamp(1.5rem, 4vw, 3.5rem) 0 0;
+  margin: 51.2px 0 0;
   color: var(--accent-dark);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-size: 38.4px;
   font-style: italic;
 }
 
 .slide-footer {
-  margin: clamp(1.5rem, 4vw, 3rem) 0 0;
+  margin: 48px 0 0;
   color: var(--muted);
-  font-size: clamp(0.9rem, 1.4vw, 1.25rem);
+  font-size: 17.92px;
 }
 
 .statement-body {
   max-width: 44ch;
-  margin: clamp(1.5rem, 4vw, 3rem) 0 0;
+  margin: 48px 0 0;
   color: var(--muted);
-  font-size: clamp(1.15rem, 2vw, 1.8rem);
+  font-size: 25.6px;
   line-height: 1.55;
 }
 
 .columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 2rem);
-  margin-top: clamp(1.5rem, 3vw, 3rem);
+  gap: 25.6px;
+  margin-top: 38.4px;
 }
 
 .column {
-  padding: clamp(1.25rem, 2.5vw, 2.25rem);
+  padding: 32px;
   border: 1px solid var(--line);
   border-top: 5px solid var(--accent);
   border-radius: 12px;
@@ -173,39 +157,11 @@ h2 { font-size: clamp(2.2rem, 5.2vw, 5.2rem); }
 
 .column:nth-child(2) { border-top-color: var(--teal); }
 .column-label { color: var(--muted); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; }
-.column h3 { margin: 0.8rem 0; font-size: clamp(1.2rem, 2vw, 1.8rem); }
-.column p { margin: 0; color: var(--muted); font-size: clamp(0.95rem, 1.25vw, 1.15rem); line-height: 1.5; }
-
-.controls { justify-content: center; }
-.controls button {
-  min-height: 2.35rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.45rem 0.9rem;
-  background: var(--surface);
-  color: var(--ink);
-  cursor: pointer;
-}
-.controls button:hover { border-color: var(--accent); }
-.controls button:focus-visible { outline: 3px solid rgb(8 127 115 / 30%); outline-offset: 2px; }
-
-.progress {
-  width: min(30vw, 26rem);
-  height: 0.35rem;
-  overflow: hidden;
-  border-radius: 1rem;
-  background: #dedbd3;
-}
-.progress span { display: block; width: 0; height: 100%; background: var(--teal); transition: width 180ms ease; }
+.column h3 { margin: 0.8rem 0; font-size: 25.6px; }
+.column p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(0.6rem); }
-}
-
-@media (max-width: 760px) {
-  .slide { width: 100%; height: auto; min-height: calc(100vh - 9rem); }
-  .columns { grid-template-columns: 1fr; }
-  .controls [data-action="fullscreen"] { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -218,8 +174,7 @@ h2 { font-size: clamp(2.2rem, 5.2vw, 5.2rem); }
 }
 
 @media print {
-  .topbar, .controls { display: none; }
-  body, .deck { display: block; padding: 0; background: #fff; }
-  .slide, .slide.is-active { width: 100%; height: 100vh; display: grid; break-after: page; border: 0; border-radius: 0; box-shadow: none; }
+  body, .deck { display: block; height: auto; overflow: visible; contain: none; padding: 0; background: #fff; }
+  .slide, .slide.is-active { transform: none; width: 100%; height: 100vh; display: grid; break-after: page; border: 0; border-radius: 0; box-shadow: none; }
   .slide:last-child { break-after: auto; }
 }

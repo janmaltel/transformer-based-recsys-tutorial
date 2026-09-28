@@ -33,7 +33,8 @@
 .objective-heatmap-limit { font-family: "IBM Plex Mono", monospace; }
 .objective-heatmap-ramp { width: 90px; height: 10px; border: 1px solid #c6c9c7; }
 .objective-heatmap-scope { margin-left: auto; }
-.objective-item-ray { stroke: currentColor; stroke-width: 1; stroke-dasharray: 4 5; opacity: .25; }
+.objective-item-ray, .objective-query-ray { stroke: currentColor; stroke-width: 3; stroke-dasharray: 4 5; opacity: .25; }
+.objective-query-ray { color: #0b4f87; }
 .objective-item-handle.positive { color: var(--objective-positive); }
 .objective-item-handle.negative { color: var(--objective-negative); }
 .objective-item-point { fill: currentColor; }
@@ -51,7 +52,7 @@
 .objective-query-label { fill: #0b4f87; font-size: 22px; font-weight: 600; pointer-events: none; }
 .objective-item-handle:focus-visible { outline: none; }
 .objective-item-handle:focus-visible .objective-item-point { stroke: #16191d; stroke-width: 2; }
-.objective-gradient-arrow, .objective-item-gradient, .objective-item-ray, .objective-poster-link { pointer-events: none; }
+.objective-gradient-arrow, .objective-item-gradient, .objective-item-ray, .objective-query-ray, .objective-poster-link { pointer-events: none; }
 .objective-descent-line { stroke: #0b4f87; stroke-width: 3; }
 .objective-gradient-head { fill: #0b4f87; }
 .objective-item-gradient.positive { color: var(--objective-positive); }
@@ -82,15 +83,6 @@
 .objective-loss-footnote { font-size: 12px; color: #78808a; flex-shrink: 0; }
 .objective-loss-lab [hidden] { display: none !important; }
 .objective-intuition .sasrec-equation { font-size: 20px; }
-@media (min-height: 850px) and (min-width: 1400px) {
-  .objective-prefix { font-size: 22px; }
-  .objective-space-details { gap: 28px; }
-  .objective-score-table { font-size: 20px; }
-  .objective-score-table output { font-size: 17px; }
-  .objective-score-table thead th, .objective-scope { font-size: 16px; }
-  .objective-loss-formula, .objective-gradient-value { font-size: 20px; }
-  .objective-gradient-hint, .objective-gradient-legend, .objective-loss-footnote { font-size: 16px; }
-}
 @media print {
   .objective-loss-lab .sasrec-stage { visibility: visible !important; }
   .objective-controls { display: none; }

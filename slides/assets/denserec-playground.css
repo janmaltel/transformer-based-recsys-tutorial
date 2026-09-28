@@ -15,7 +15,7 @@
 .sasrec-denserec .sasrec-denserec-summary { font-size: 0.53rem; }
 .sasrec-denserec .sasrec-cold-search:has(input:disabled) { opacity: 0.65; }
 .sasrec-denserec .sasrec-playground-footer { justify-content: space-between; gap: 1rem; }
-.sasrec-denserec-note { font: 0.55rem/1.4 var(--font-mono, monospace); color: var(--playground-muted); }
+.sasrec-denserec-note { font: var(--fs-reference, 12px)/1.4 var(--font-mono, monospace); color: var(--playground-muted); }
 .sasrec-denserec-print-model { display: none; }
 .sasrec-denserec .sasrec-search-result { position: relative; }
 .sasrec-denserec .sasrec-search-result .sasrec-movie-name {
@@ -62,5 +62,9 @@
   .sasrec-denserec .sasrec-candidate-scope { display: none; }
   .sasrec-denserec .sasrec-playground-footer { display: flex !important; }
   .sasrec-denserec .sasrec-settings-menu { display: none; }
-  .sasrec-denserec-print-model { display: inline; font: 0.55rem/1.4 var(--font-mono, monospace); }
+  .sasrec-denserec-print-model { display: inline; font: var(--fs-reference, 12px)/1.4 var(--font-mono, monospace); }
 }
+
+/* The release year identifies movies added beyond the MovieLens-1M catalog. */
+.sasrec-denserec .sasrec-external-title { flex-wrap: wrap; overflow: visible; }
+.sasrec-denserec .sasrec-external-title .sasrec-year { display: inline; }

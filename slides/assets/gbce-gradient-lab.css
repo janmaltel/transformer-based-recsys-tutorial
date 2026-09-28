@@ -25,7 +25,7 @@
 .slide-scaling .scaling-point .gbce-gradient-lab .gbce-lab-footnote { margin: .35rem 0; font-size: .75rem; color: #697276; }
 .slide-scaling .scaling-point .gbce-gradient-lab .gbce-lab-summary.gbce-lab-unbalanced { color: #b4232a; }
 .slide-scaling .scaling-point .gbce-gradient-lab .gbce-lab-summary.gbce-lab-balanced { color: #087f73; }
-.gbce-lab-source { color: #697276; font-size: .75rem; }
+.gbce-lab-source { color: #697276; font-size: var(--fs-reference); }
 @media (max-width: 700px) { .gbce-gradient-lab { padding: .8rem; } .gbce-lab-heading { align-items: start; } .slide-scaling .scaling-point .gbce-gradient-lab .gbce-lab-heading h3 { font-size: 1.1rem; } .gbce-lab-correction { grid-template-columns: 9rem 1fr 4.5rem; } .slide-scaling .scaling-point .gbce-gradient-lab .gbce-lab-scale { margin: .35rem 0 0; color: #697276; font-size: .8rem; }
 .gbce-lab-plot { height: 200px; } }
 @media print { .gbce-lab-open, .gbce-gradient-lab { display: none !important; } }

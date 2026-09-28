@@ -31,29 +31,35 @@
 
   function transitionLinks(host, p) {
     var data = root.MultipleInterestSpaceData;
-    var svg = p.canvas(host, 500, 285);
+    var svg = p.canvas(host, 500, 300);
     svg.classList.add("interest-links");
     var lookup = {};
     data.movies.forEach(function (movie) { lookup[movie.id] = movie; });
-    var sourcesY = [86, 217];
+    var sourcesY = data.pctm.sources.map(function (id, index) {
+      return 50 + index * 194 / Math.max(1, data.pctm.sources.length - 1);
+    });
+    var maximum = data.pctm.candidates.reduce(function (highest, candidate) {
+      return Math.max(highest, Math.max.apply(null, candidate.pairwiseProbabilities));
+    }, 0);
     data.pctm.candidates.forEach(function (candidate, index) {
       var targetY = 36 + index * 52;
-      candidate.contributions.forEach(function (value, source) {
-        var maximum = Math.max.apply(null, data.pctm.candidates.map(function (c) { return c.contributions[source]; }));
+      candidate.pairwiseProbabilities.forEach(function (value, source) {
         var line = p.k.node("path", {
           d: "M88 " + sourcesY[source] + " C180 " + sourcesY[source] + " 204 " + targetY + " 280 " + targetY,
           "class": "interest-link interest-link-" + source,
-          "stroke-width": 1 + 2 * value / maximum
+          "data-source-id": data.pctm.sources[source],
+          "data-target-id": candidate.id,
+          "stroke-width": 0.2 + 5.8 * value / maximum
         }, svg);
-        p.k.node("title", {}, line, "Weighted log evidence: " + value.toFixed(3));
+        p.k.node("title", {}, line, "P(candidate | source): " + (value * 100).toFixed(3) + "%");
       });
     });
     data.pctm.sources.forEach(function (id, index) {
       var y = sourcesY[index];
-      var title = index ? "The Matrix" : "Toy Story 2";
-      poster(svg, id, 23, y - 47, 51, 77, title, p);
-      p.text(svg, 49, y - 58, title, "interest-source-title");
-      p.text(svg, 49, y + 48, "Weight " + (data.pctm.weights[index] * 100).toFixed(1) + "%", "interest-source-weight");
+      var title = lookup[id] ? shortTitle(lookup[id].title) : "Movie " + id;
+      poster(svg, id, 30, y - 29, 38, 57, title, p);
+      p.text(svg, 49, y - 38, title, "interest-source-title");
+      p.text(svg, 49, y + 43, "Weight " + (data.pctm.weights[index] * 100).toFixed(1) + "%", "interest-source-weight");
     });
     data.pctm.candidates.forEach(function (candidate, index) {
       var y = 36 + index * 52;
@@ -68,7 +74,9 @@
   function shortTitle(title) {
     return title.replace("Twelve Monkeys (a.k.a. 12 Monkeys)", "Twelve Monkeys")
       .replace("Terminator 2: Judgment Day", "Terminator 2")
-      .replace("Fugitive, The", "The Fugitive");
+      .replace("Fugitive, The", "The Fugitive")
+      .replace("Matrix, The", "The Matrix")
+      .replace("Terminator, The", "The Terminator");
   }
 
   function poster(svg, id, x, y, width, height, label, p) {

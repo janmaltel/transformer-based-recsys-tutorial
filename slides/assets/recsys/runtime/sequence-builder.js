@@ -370,12 +370,13 @@
 
     function onSearchFocusIn(event) {
       clearTimeout(searchCloseTimer);
-      if (event.target === searchInput && searchInput.value.trim()) renderSearch();
+      if (event.target === searchInput) renderSearch();
     }
 
     function onSearchFocusOut() {
       clearTimeout(searchCloseTimer);
       searchCloseTimer = setTimeout(function () {
+        if (coldControls && !searchInput.value.trim()) return;
         if (!searchNode.contains(document.activeElement)) closeSearchResults();
       }, 0);
     }

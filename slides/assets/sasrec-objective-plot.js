@@ -27,6 +27,7 @@
     svgNode(svg, "text", { x: origin[0] - 14, y: origin[1] + 20, class: "objective-axis-label" }, "0");
     svgNode(svg, "text", { x: 737, y: origin[1] + 6, class: "objective-axis-label" }, "x");
     svgNode(svg, "text", { x: origin[0] + 11, y: 24, class: "objective-axis-label" }, "y");
+    var queryRay = svgNode(svg, "line", { x1: origin[0], y1: origin[1], class: "objective-query-ray" });
     var itemViews = space.items.map(function (item, index) {
       var group = svgNode(svg, "g", { class: "sasrec-stage objective-item-handle " + item.sign,
         "data-build-step": item.step, tabindex: 0, role: "button" });
@@ -88,7 +89,6 @@
       svgNode(itemMarker, "path", { d: "M0 0L10 5L0 10Z", class: "objective-item-gradient-head " + item.sign });
       var group = svgNode(svg, "g", { class: "sasrec-stage objective-item-gradient " + item.sign,
         "data-build-step": 2 });
-      svg.insertBefore(group, svg.querySelector(".objective-item-handle"));
       return { group: group, line: svgNode(group, "line", { class: "objective-item-descent-line",
         "marker-end": "url(#" + itemMarkerId + ")" }), title: svgNode(group, "title") };
     });
@@ -118,6 +118,7 @@
     function setPosition(next) {
       position = space.clamp(next);
       var p = space.toPlot(position);
+      queryRay.setAttribute("x2", p[0]); queryRay.setAttribute("y2", p[1]);
       handle.setAttribute("transform", "translate(" + p.join(" ") + ")");
       label.setAttribute("x", p[0] > 690 ? -18 : 16);
       label.setAttribute("text-anchor", p[0] > 690 ? "end" : "start");

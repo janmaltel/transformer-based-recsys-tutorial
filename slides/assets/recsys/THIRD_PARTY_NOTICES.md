@@ -132,6 +132,12 @@ manifest recording the URL-catalog hash, current model-mapping hash, 52 missing
 IDs, byte totals, and every output hash. The source images were resized to
 192 px and encoded as AVIF at quality 45 and effort 6.
 
+The supplemental `posters/ml1m/cold-avif-w192-q45-v1/` release uses the same
+user-supplied URL catalog and encoding settings. It adds 126 images for the
+151 movies outside the introductory checkpoint catalog, totaling 652,313 bytes.
+Its manifest records all 25 missing IDs, source URLs and output hashes. It does
+not modify the original 3,364-poster release.
+
 TMDB states that it does not own the underlying artwork, and its API terms
 restrict caching, derivatives, and ML/AI-related use. Inclusion in this private
 tutorial repository does not itself grant downstream redistribution or

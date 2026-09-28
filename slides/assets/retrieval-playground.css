@@ -37,10 +37,6 @@
 .retrieval-query-mark:active { cursor: grabbing; }
 .retrieval-movie { transition: opacity 140ms ease; }
 .retrieval-movie image { transition: opacity 140ms ease; }
-@media (max-width: 760px) {
-  .retrieval-space .retrieval-space-controls { right: .45rem; top: .35rem; }
-  .retrieval-space-controls-label { display: none; }
-}
 @media (prefers-reduced-motion: reduce) {
   .retrieval-movie,
   .retrieval-movie image { transition: none; }

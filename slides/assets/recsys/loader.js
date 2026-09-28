@@ -18,6 +18,7 @@
     "pred-denserec-p1-e5-500-ml1m": 2,
     "sasrec-ml1m": 6,
     "gsasrec-ml1m": 6,
+    "gsasrec-nearest-warm-e5-ml1m": 0,
     "pred-sasrec-ml1m": 2,
     "pad-first-ml1m": 2,
     "pred-denserec-ml1m": 2,
@@ -96,10 +97,14 @@
       "data/mappings.js",
       "data/examples.js",
       "data/movie-catalog.js?v=1",
-      "data/poster-assets.js?v=3"
+      "data/cold-poster-assets.js",
+      "data/external-movies.js",
+      "data/external-movie-vectors.js",
+      "data/poster-assets.js?v=5"
     ]).then(loadMetadata).then(function () {
       return inOrder([
-        "runtime/weight-loader.js?v=4",
+        "runtime/weight-loader.js?v=5",
+        "runtime/catalog-extensions.js",
         "runtime/id-mapping.js?v=2",
         "runtime/fuzzy-search.js",
         "runtime/movie-metadata.js?v=2",
@@ -107,11 +112,12 @@
         "runtime/pred-engine.js?v=5",
         "runtime/knn-engine.js",
         "runtime/pctm-engine.js?v=1",
-        "runtime/engine.js?v=7",
+        "runtime/nearest-warm-engine.js",
+        "runtime/engine.js?v=8",
         "runtime/session.js?v=6",
-        "runtime/movie-ui.js?v=4",
-        "runtime/model-routing.js?v=5",
-        "runtime/denserec-controls.js?v=7",
+        "runtime/movie-ui.js?v=5",
+        "runtime/model-routing.js?v=6",
+        "runtime/denserec-controls.js?v=11",
         "runtime/model-picker.js?v=1",
         "runtime/sequence-builder.js?v=12"
       ]);
@@ -122,7 +128,7 @@
   function loadModel(modelId) {
     if (modelLoads[modelId]) return modelLoads[modelId];
     var chunkCount = modelChunkCounts[modelId];
-    if (!chunkCount) {
+    if (chunkCount == null) {
       return Promise.reject(new Error("Unknown bundled browser model: " + modelId));
     }
     var revision = modelId === "pad-first-ml1m" ? "?v=500-epochs-20260925" : "";
@@ -132,7 +138,10 @@
         "models/" + modelId + "/weights-" + String(index).padStart(2, "0") + ".js" + revision
       );
     }
-    modelLoads[modelId] = inOrder(paths);
+    modelLoads[modelId] = inOrder(paths).then(function () {
+      var base = root.GSASRecModels[modelId].baseModelId;
+      return base ? loadModel(base) : null;
+    });
     return modelLoads[modelId];
   }
 
@@ -140,6 +149,7 @@
     var source = options || {};
     var modelIds = source.modelIds || ["gsasrec-ml1m"];
     return Promise.all([loadCommon()].concat(modelIds.map(loadModel))).then(function () {
+      modelIds.forEach(root.GSASRecBrowser.applyCatalogExtension);
       return Promise.all(modelIds.map(function (id) {
         return root.GSASRecModels[id].compression
           ? root.GSASRecBrowser.prepareWeights(id) : null;

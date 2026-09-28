@@ -1,0 +1,51 @@
+/* This control requests native fullscreen; the slide canvas never reflows. */
+.presentation-fullscreen {
+  position: fixed;
+  z-index: 30;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  color: var(--text-primary);
+  font: 12px/1.4 var(--font-mono);
+}
+
+.deck-fullscreen-toggle {
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid var(--border-hairline);
+  border-radius: 0;
+  background: var(--surface-page);
+  color: var(--text-muted);
+  cursor: pointer;
+  font: inherit;
+}
+
+.deck-fullscreen-toggle:hover { color: var(--blue-700); border-color: var(--blue-600); }
+.deck-fullscreen-toggle:focus-visible { outline: 2px solid var(--blue-600); outline-offset: -2px; }
+.deck-fullscreen-toggle:disabled { cursor: wait; }
+
+.deck-fullscreen-message {
+  position: absolute;
+  right: 10px;
+  bottom: 100%;
+  width: min(360px, calc(100vw - 20px));
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--border-hairline);
+  background: var(--surface-page);
+  font: 14px/1.4 var(--font-body);
+}
+
+.deck-fullscreen-message[hidden] { display: none; }
+
+@media (hover: hover) {
+  .presentation-fullscreen:not(:hover):not(:has(:focus-visible)):not(.has-message) { opacity: 0; }
+}
+
+@media (pointer: coarse) {
+  .deck-fullscreen-toggle { min-width: 44px; min-height: 44px; }
+}
+
+@media print {
+  .presentation-fullscreen { display: none !important; }
+}

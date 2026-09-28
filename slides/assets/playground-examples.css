@@ -1,0 +1,47 @@
+.sasrec-example-controls {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.sasrec-examples-label {
+  margin-bottom: 0.2rem;
+  color: var(--playground-muted);
+  font: 600 0.75rem/1.2 var(--font-mono);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.sasrec-example-button {
+  border: 1px solid var(--playground-line-strong);
+  border-radius: 0;
+  padding: 0.55rem 0.65rem;
+  background: transparent;
+  color: var(--playground-text);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sasrec-example-button[aria-pressed="true"] {
+  border-color: var(--playground-accent);
+  background: var(--playground-recessed);
+  color: var(--playground-accent);
+}
+
+.sasrec-example-button:hover { border-color: var(--playground-accent); }
+.sasrec-example-button:focus-visible {
+  outline: 2px solid var(--playground-accent);
+  outline-offset: 3px;
+}
+
+.sasrec-example-caption {
+  margin: 0.25rem 0 0;
+  color: var(--playground-secondary);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}

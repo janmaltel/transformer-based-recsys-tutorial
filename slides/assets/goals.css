@@ -127,18 +127,6 @@
   text-wrap: pretty;
 }
 
-@media (max-width: 760px) {
-  .outline-list { grid-template-rows: none; }
-
-  .outline-row {
-    grid-template-columns: 58px minmax(0, 1fr);
-    gap: 12px;
-    padding: 18px 0;
-  }
-
-  .outline-scope { grid-column: 2; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .outline-row { transition: none; }
 }

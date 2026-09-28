@@ -10,15 +10,15 @@
       composition: "instrument", view: "sequence-builder", sessionKey: "nearest-warm-sequence",
       modelLabel: "Nearest-warm SASRec · MovieLens-1M",
       scenario: {
-        modelId: "pred-nearest-warm-e5-ml1m", history: { ids: [34, 2, 1], idSpace: "original" },
+        modelId: "gsasrec-nearest-warm-e5-ml1m", history: { ids: [], idSpace: "original" },
         topK: 5, filterHistory: true, allowEmptyHistory: true, candidateScope: "all"
       },
       controls: {
         model: true,
-        allowedModels: ["gsasrec-ml1m", "pred-nearest-warm-e5-ml1m", "pred-denserec-p05-e5-masked-1000-ml1m", "pred-denserec-p1-e5-masked-1000-ml1m"],
+        allowedModels: ["gsasrec-ml1m", "gsasrec-nearest-warm-e5-ml1m", "pred-denserec-p05-e5-masked-1000-ml1m", "pred-denserec-p1-e5-masked-1000-ml1m"],
         modelPresentation: {
           "gsasrec-ml1m": { label: "SASRec" },
-          "pred-nearest-warm-e5-ml1m": { label: "Nearest-warm SASRec" },
+          "gsasrec-nearest-warm-e5-ml1m": { label: "Nearest-warm SASRec" },
           "pred-denserec-p05-e5-masked-1000-ml1m": { label: "DenseRec p=0.5" },
           "pred-denserec-p1-e5-masked-1000-ml1m": { label: "Content-only SASRec" }
         },

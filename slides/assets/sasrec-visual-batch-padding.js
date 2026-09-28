@@ -77,7 +77,7 @@
     });
     masks.line(28, 449, 1172, 449).stroke({ color: kit.colors.line, width: 1 });
     d.text(masks, "Loss is averaged over 5 valid positions", 28, 467, { size: 19 });
-    d.text(masks, "Causal mask: no future items", 765, 467, { size: 18, color: kit.colors.muted });
+    d.text(masks, "≠ Causal mask: no future items", 765, 467, { size: 18, color: kit.colors.muted });
   }
   parts["batch-padding"] = render;
 })(typeof globalThis !== "undefined" ? globalThis : window);

@@ -17,23 +17,25 @@
     <link rel="stylesheet" href="assets/sasrec.css">
     <link rel="stylesheet" href="assets/retrieval-playground.css?v=20260923-embedding-space-2">
     <link rel="stylesheet" href="assets/playground.css?v=5">
+    <link rel="stylesheet" href="assets/playground-examples.css">
     <link rel="stylesheet" href="assets/model-picker.css?v=1">
     <link rel="stylesheet" href="assets/pctm-playground.css?v=2">
     <link rel="stylesheet" href="assets/empty-prefix.css">
     <link rel="stylesheet" href="assets/design-system-adapter.css">
+    <link rel="stylesheet" href="assets/presentation-fullscreen.css">
     <link rel="stylesheet" href="assets/section-dividers.css">
     <link rel="stylesheet" href="assets/tutorial-closing.css">
     <link rel="stylesheet" href="assets/tutorial-review.css?v=20260926-pctm-integration">
     <link rel="stylesheet" href="assets/sasrec-objective.css?v=3">
     <link rel="stylesheet" href="assets/materials.css">
-    <link rel="stylesheet" href="assets/fullscreen.css">
+    <link rel="stylesheet" href="assets/presentation-outline.css">
     <link rel="stylesheet" href="assets/scaling-slides.css">
     <link rel="stylesheet" href="assets/pctm.css?v=20260917-pctm-5">
-    <link rel="stylesheet" href="assets/multiple-interests.css?v=5">
+    <link rel="stylesheet" href="assets/multiple-interests.css?v=20260927-pairwise">
     <link rel="stylesheet" href="assets/denserec.css">
     <link rel="stylesheet" href="assets/cold-start-methods.css">
     <link rel="stylesheet" href="assets/embedding-resources.css">
-    <link rel="stylesheet" href="assets/denserec-playground.css?v=6">
+    <link rel="stylesheet" href="assets/denserec-playground.css?v=external-6">
     <link rel="stylesheet" href="assets/recjpq-assignment.css?v=20260916-assignment-2">
     <link rel="stylesheet" href="assets/recjpq-codebooks.css?v=20260916-codebooks-4">
     <link rel="stylesheet" href="assets/recjpq-memory-motivation.css?v=20260916-calculator-7">
@@ -51,8 +53,10 @@
     <script src="assets/vendor/svgjs/svg.min.js" defer></script>
     <script src="element-overrides.js" defer></script>
     <script src="assets/presentation-element-overrides.js" defer></script>
-    <script src="assets/recsys/data/poster-assets.js?v=3" defer></script>
-    <script src="assets/recsys/loader.js?v=20260926-model-picker" defer></script>
+    <script src="assets/recsys/data/cold-poster-assets.js" defer></script>
+    <script src="assets/recsys/data/external-movies.js" defer></script>
+    <script src="assets/recsys/data/poster-assets.js?v=5" defer></script>
+    <script src="assets/recsys/loader.js?v=20260928-shared-cold-examples" defer></script>
     <script src="assets/canonical-movie-example.js?v=2" defer></script>
     <script src="slides/title.js" defer></script>
     <script src="slides/tutorial-goals.js" defer></script>
@@ -63,6 +67,7 @@
     <script src="slides/working-definition.js" defer></script>
     <script src="slides/matrix-hides-timeline.js" defer></script>
     <script src="slides/guiding-question.js" defer></script>
+    <script src="slides/history-order-playground.js" defer></script>
     <script src="slides/transformer-based-models.js" defer></script>
     <script src="slides/sasrec-running-model.js" defer></script>
     <script src="slides/sequence-model-input-output.js" defer></script>
@@ -71,12 +76,12 @@
     <script src="slides/sasrec-end-to-end.js" defer></script>
     <script src="slides/training-and-retrieval.js" defer></script>
     <script src="slides/training-sequence-corpora.js" defer></script>
-    <script src="slides/events-to-training-examples.js" defer></script>
     <script src="slides/sasrec-training-objective.js" defer></script>
     <script src="slides/sasrec-bce-loss.js" defer></script>
     <script src="slides/sasrec-training-batches.js" defer></script>
     <script src="slides/sasrec-batch-padding.js" defer></script>
     <script src="slides/sasrec-batch-optimization.js" defer></script>
+    <script src="slides/training-data-preprocessing.js" defer></script>
     <script src="slides/movielens-training-sequences.js" defer></script>
     <script src="slides/user-item-k-core.js" defer></script>
     <script src="slides/temporal-training-splits.js" defer></script>
@@ -127,14 +132,14 @@
     <script src="slides/content-embedding-benchmarks.js" defer></script>
     <script src="slides/content-embedding-model.js" defer></script>
     <script src="slides/content-only-sasrec.js" defer></script>
-    <script src="slides/content-only-playground.js?v=20260926-no-content-knn" defer></script>
+    <script src="slides/content-only-playground.js?v=20260928-empty-history" defer></script>
     <script src="slides/nearest-warm-sasrec.js" defer></script>
-    <script src="slides/nearest-warm-playground.js?v=20260926-no-content-knn" defer></script>
+    <script src="slides/nearest-warm-playground.js?v=20260928-empty-history" defer></script>
     <script src="slides/denserec-dual-path.js" defer></script>
     <script src="slides/denserec-pdense.js" defer></script>
     <script src="slides/denserec-training-serving.js" defer></script>
     <script src="slides/denserec-evidence.js" defer></script>
-    <script src="slides/denserec-playground.js?v=20260926-no-content-knn" defer></script>
+    <script src="slides/denserec-playground.js?v=20260928-empty-history" defer></script>
     <script src="slides/user-cold-start.js" defer></script>
     <script src="slides/user-cold-start-playground.js" defer></script>
     <script src="slides/user-cold-start-empty-history.js" defer></script>
@@ -145,8 +150,8 @@
     <script src="slides/pctm-transition-estimates.js?v=20260917-pctm-5" defer></script>
     <script src="slides/pctm-history-pooling.js?v=20260917-pctm-5" defer></script>
     <script src="slides/pctm-benchmark-evidence.js?v=20260917-pctm-5" defer></script>
-    <script src="slides/multiple-interests.js?v=4" defer></script>
-    <script src="slides/pctm-playground.js?v=3" defer></script>
+    <script src="slides/multiple-interests.js?v=20260927-pairwise" defer></script>
+    <script src="slides/pctm-playground.js?v=20260927-sequels" defer></script>
     <script src="slides/takeaways-and-resources.js" defer></script>
     <script src="slides/tutorial-recap.js" defer></script>
     <script src="slides/tutorial-materials.js" defer></script>
@@ -173,7 +178,6 @@
     <script src="assets/sasrec-visual-stack.js" defer></script>
     <script src="assets/training-data-example.js" defer></script>
     <script src="assets/sequence-split-example.js" defer></script>
-    <script src="assets/events-sequences-visual.js" defer></script>
     <script src="assets/temporal-splits-visual.js" defer></script>
     <script src="assets/training-corpora-visual.js" defer></script>
     <script src="assets/movielens-training-visual.js" defer></script>
@@ -197,7 +201,7 @@
     <script src="assets/embedding-resources-visual.js" defer></script>
     <script src="assets/sasrec-visual.js" defer></script>
     <script src="assets/empty-prefix-visual.js" defer></script>
-    <script src="assets/playground-visual.js?v=4" defer></script>
+    <script src="assets/playground-visual.js?v=5" defer></script>
     <script src="assets/pctm-playground.js?v=3" defer></script>
     <script src="assets/presentation-editor-refs.js" defer></script>
     <script src="assets/section-divider-visual.js" defer></script>
@@ -241,29 +245,36 @@
     <script src="assets/pctm-capacity-visual.js?v=20260917-pctm-5" defer></script>
     <script src="assets/pctm-mechanics-visual.js?v=20260917-pctm-5" defer></script>
     <script src="assets/pctm-benchmark-visual.js?v=20260917-pctm-5" defer></script>
-    <script src="assets/data/multiple-interest-space.js?v=1" defer></script>
+    <script src="assets/data/multiple-interest-space.js?v=20260927-pairwise" defer></script>
     <script src="assets/multiple-interest-plot.js?v=5" defer></script>
-    <script src="assets/multiple-interest-visual.js?v=4" defer></script>
+    <script src="assets/multiple-interest-visual.js?v=20260927-pairwise" defer></script>
     <script src="assets/scaling-slide-visual.js?v=20260916-recjpq-quality-4" defer></script>
     <script src="assets/references-visual.js" defer></script>
+    <script src="assets/presentation-outline-model.js" defer></script>
+    <script src="assets/presentation-outline.js" defer></script>
+    <script src="assets/presentation-viewport.js" defer></script>
+    <script src="assets/presentation-fullscreen.js" defer></script>
     <script src="assets/presentation.js" defer></script>
     <script src="assets/math-render.js" defer></script>
   </head>
   <body>
     <noscript>This presentation requires JavaScript for slide navigation.</noscript>
 
-    <header class="topbar">
-      <span class="brand"><i aria-hidden="true"></i> RecSys 2026</span>
-      <span class="counter" aria-live="polite">1 / 1</span>
-    </header>
-
     <main id="deck" class="deck" tabindex="-1"></main>
 
-    <footer class="controls" aria-label="Presentation controls">
-      <button type="button" data-action="previous" aria-label="Previous slide">←</button>
-      <button type="button" data-action="next" aria-label="Next slide">→</button>
-      <div class="progress" aria-hidden="true"><span></span></div>
-      <button type="button" data-action="fullscreen">Fullscreen</button>
-    </footer>
+    <nav class="presentation-outline" aria-label="Presentation outline" hidden>
+      <button type="button" class="deck-outline-trigger" aria-expanded="false" aria-controls="presentation-deck-outline-panel">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M1 3h3m2 0h9M1 8h3m2 0h9M1 13h3m2 0h9"/></svg>
+        <span>Outline</span>
+      </button>
+      <div class="deck-outline-panel" id="presentation-deck-outline-panel" hidden>
+        <div class="deck-outline-heading">
+          <h2>Presentation outline</h2>
+          <button type="button" class="deck-outline-close" aria-label="Close outline">×</button>
+        </div>
+        <ol class="deck-outline-tree"></ol>
+      </div>
+    </nav>
+
   </body>
 </html>

@@ -27,7 +27,7 @@
 .paper-reference-authors {
   margin: 0 0 3px;
   color: var(--text-muted);
-  font: 400 16px/1.25 var(--font-body);
+  font: 400 18px/1.25 var(--font-body);
 }
 .paper-reference-title {
   display: block;

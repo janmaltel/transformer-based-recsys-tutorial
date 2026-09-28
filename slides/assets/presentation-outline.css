@@ -1,0 +1,141 @@
+.presentation-outline {
+  position: fixed;
+  z-index: 30;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  color: var(--text-primary);
+  font: 14px/1.4 var(--font-body);
+}
+
+.presentation-outline [hidden],
+.presentation-outline[hidden] { display: none !important; }
+
+.presentation-outline button {
+  border: 1px solid var(--border-hairline);
+  border-radius: 0;
+  background: var(--surface-page);
+  color: var(--text-muted);
+  cursor: pointer;
+  font: inherit;
+}
+
+.presentation-outline .deck-outline-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 7px 10px;
+  font: 12px/1.4 var(--font-mono);
+}
+
+.deck-outline-trigger svg { width: 16px; height: 16px; }
+
+.deck-outline-panel {
+  position: absolute;
+  bottom: calc(100% - 10px);
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  width: min(430px, calc(100vw - 20px));
+  /* Collapsing a branch must not move the panel away from the pointer. */
+  height: min(580px, calc(100vh - 66px));
+  height: min(580px, calc(100dvh - 66px));
+  border: 1px solid var(--border-mid);
+  background: var(--surface-page);
+}
+
+.deck-outline-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.deck-outline-heading h2 {
+  max-width: none;
+  margin: 0;
+  color: var(--text-primary);
+  font: 600 14px/1.3 var(--font-body);
+  letter-spacing: normal;
+}
+
+.presentation-outline .deck-outline-close {
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+}
+
+.deck-outline-tree,
+.deck-outline-children { margin: 0; padding: 0; list-style: none; }
+
+.deck-outline-tree {
+  flex: 1;
+  min-height: 0;
+  padding: 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.deck-outline-children {
+  margin-left: 14px;
+  padding-left: 9px;
+  border-left: 1px solid var(--border-hairline);
+}
+
+.deck-outline-row { display: flex; align-items: start; }
+
+.presentation-outline .deck-outline-toggle {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 34px;
+  border-color: transparent;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.deck-outline-toggle[aria-expanded="true"] { transform: rotate(90deg); }
+
+.deck-outline-link {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  gap: 9px;
+  margin-left: 28px;
+  padding: 8px 6px;
+  border-left: 2px solid transparent;
+  color: var(--text-primary);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.deck-outline-toggle + .deck-outline-link { margin-left: 0; font-weight: 600; }
+.deck-outline-number { flex: 0 0 auto; white-space: nowrap; color: var(--text-muted); font: 11px/1.8 var(--font-mono); }
+.deck-outline-link:hover { background: var(--blue-100); color: var(--blue-700); }
+.deck-outline-link[aria-current="page"] { background: var(--blue-100); color: var(--blue-700); border-left-color: var(--blue-600); }
+.deck-outline-link[aria-current="page"] .deck-outline-number { flex: 0 0 auto; white-space: nowrap; color: inherit; }
+.presentation-outline button:hover { color: var(--blue-700); border-color: var(--blue-600); }
+.presentation-outline :is(button, a):focus-visible { outline: 2px solid var(--blue-600); outline-offset: -2px; }
+
+/* Keep the corner as a hover target without visible chrome during a talk.
+   Keyboard focus reveals it too; touch devices retain their visible control. */
+@media (hover: hover) {
+  .presentation-outline:not(:hover):not(:has(:focus-visible)) {
+    opacity: 0;
+  }
+}
+
+@media (pointer: coarse) {
+  .presentation-outline .deck-outline-trigger,
+  .presentation-outline .deck-outline-toggle,
+  .presentation-outline .deck-outline-close { min-height: 44px; min-width: 44px; }
+  .deck-outline-link { min-height: 44px; align-items: center; }
+}
+
+@media print {
+  .presentation-outline { display: none !important; }
+}

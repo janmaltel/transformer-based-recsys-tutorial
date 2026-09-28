@@ -96,6 +96,37 @@
     };
   }
 
+  function mountExamples(host, session, examples) {
+    if (!examples || !examples.length) return;
+    var ui = root.SASRecPlayground.movieUI;
+    var presets = ui.element("div", "sasrec-example-controls");
+    presets.setAttribute("role", "group");
+    presets.setAttribute("aria-label", "Example histories");
+    presets.appendChild(ui.element("span", "sasrec-examples-label", "Example histories"));
+    examples.forEach(function (example) {
+      var button = ui.element("button", "sasrec-example-button", example.label);
+      button.type = "button";
+      button.addEventListener("click", function () {
+        session.setHistory(example.ids, "original");
+        session.run();
+      });
+      presets.appendChild(button);
+    });
+    presets.appendChild(ui.element("p", "sasrec-example-caption",
+      "Oldest → newest. Illustrative histories; recommendations use the same fitted model as the first playground."));
+    host.querySelector('[data-control="search"]').insertAdjacentElement("afterend", presets);
+    session.subscribe(function (state) {
+      var manifest = root.GSASRecModels[state.modelId];
+      var ids = state.history.map(function (id) {
+        return root.GSASRecBrowser.idMapping.itemPair(id, manifest).original;
+      });
+      presets.querySelectorAll("button").forEach(function (button, index) {
+        button.setAttribute("aria-pressed", String(
+          JSON.stringify(examples[index].ids) === JSON.stringify(ids)));
+      });
+    });
+  }
+
   function modelIdsFor(config) {
     var view = viewConfig(config);
     var ids = view.allowedModels.slice();
@@ -153,6 +184,8 @@
         );
         if ((slide.playground.scenario || {}).modelId === "pctm-ml1m" && root.PCTMPlayground) {
           root.PCTMPlayground.mount(host, session, slide.playground.examples || []);
+        } else {
+          mountExamples(host, session, slide.playground.examples);
         }
         mounted = true;
         mounting = false;

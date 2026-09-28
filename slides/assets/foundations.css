@@ -1,17 +1,17 @@
 .slide-foundation .slide-content {
   width: 100%;
-  padding: clamp(2rem, 3.8vw, 3.8rem) clamp(2rem, 5vw, 5rem);
+  padding: 48.64px 64px;
 }
 
 .slide-foundation .eyebrow { margin-bottom: 0.6rem; }
 
 .slide-foundation h2 {
   max-width: none;
-  font-size: clamp(2.7rem, 4.8vw, 4.8rem);
+  font-size: 61.44px;
 }
 
 .foundation-canvas {
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: 38.4px;
 }
 
 .foundation-stage {
@@ -37,26 +37,26 @@
 
 .foundation-stage h3 {
   margin: 0.35rem 0 0.8rem;
-  font-size: clamp(1.15rem, 1.65vw, 1.55rem);
+  font-size: 21.12px;
 }
 
 .foundation-caption {
   margin: 0.7rem 0 0;
   color: var(--muted);
-  font-size: clamp(0.75rem, 0.9vw, 0.88rem);
+  font-size: 12px;
 }
 
 .matrix-timeline {
   display: grid;
   grid-template-columns: minmax(15rem, 0.82fr) auto minmax(23rem, 1.2fr);
-  gap: clamp(1rem, 2vw, 1.8rem);
+  gap: 25.6px;
   align-items: center;
 }
 
 .matrix-view,
 .timeline-view {
   min-height: 13.5rem;
-  padding: clamp(1.15rem, 2vw, 1.8rem);
+  padding: 25.6px;
   border: 1px solid var(--line);
   border-radius: 18px;
   background: #fff;
@@ -93,12 +93,12 @@
 .event-track {
   display: flex;
   align-items: center;
-  gap: clamp(0.35rem, 0.8vw, 0.7rem);
+  gap: 10.24px;
   margin-top: 1.3rem;
 }
 
 .event-node {
-  width: clamp(3rem, 4.5vw, 4.5rem);
+  width: 57.6px;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -133,13 +133,13 @@
 .movielens-rationale {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.8rem, 1.6vw, 1.35rem);
+  gap: 20.48px;
 }
 
 .raw-events,
 .example-construction,
 .rationale-card {
-  padding: clamp(1rem, 1.8vw, 1.5rem);
+  padding: 23.04px;
   border: 1px solid var(--line);
   border-radius: 18px;
   background: #fff;
@@ -163,7 +163,7 @@
 .sequence-arrow { color: var(--muted); font-size: 1.3rem; }
 
 .time-contract { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(18rem, 1.2fr) minmax(20rem, 1fr); gap: 1rem; align-items: center; padding: 0.85rem 1rem; border-radius: 14px; background: #edf4f2; }
-.time-contract p { margin: 0; font-size: clamp(0.82rem, 1.1vw, 1rem); font-weight: 700; }
+.time-contract p { margin: 0; font-size: 14.08px; font-weight: 700; }
 .time-split { display: grid; grid-template-columns: 3fr 1fr 1fr; overflow: hidden; border-radius: 8px; color: white; font-size: 0.72rem; font-weight: 850; text-align: center; }
 .time-split span { padding: 0.55rem 0.35rem; }
 .train-split { background: var(--teal); }
@@ -174,18 +174,11 @@
 .teaching-card { border-top: 5px solid var(--teal); }
 .evidence-card { border-top: 5px solid var(--accent); }
 .foundation-points { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
-.foundation-point { display: grid; grid-template-columns: 0.75rem minmax(0, 1fr); gap: 0.65rem; align-items: start; color: var(--muted); font-size: clamp(0.85rem, 1.05vw, 1rem); }
+.foundation-point { display: grid; grid-template-columns: 0.75rem minmax(0, 1fr); gap: 0.65rem; align-items: start; color: var(--muted); font-size: 13.6px; }
 .foundation-point-dot { width: 0.62rem; height: 0.62rem; margin-top: 0.28rem; border-radius: 50%; background: var(--teal); }
 .evidence-card .foundation-point-dot { background: var(--accent); }
 .movielens-takeaway { justify-content: center; text-align: center; }
 .slide-foundation .slide-footer { margin-top: 0.9rem; font-size: 0.75rem; font-weight: 700; }
-
-@media (max-width: 760px) {
-  .matrix-timeline, .events-examples, .movielens-rationale { grid-template-columns: 1fr; }
-  .foundation-bridge { display: none; }
-  .time-contract { grid-column: auto; grid-template-columns: 1fr; }
-  .foundation-takeaway { grid-column: auto; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .foundation-stage { transition: none; }

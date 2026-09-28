@@ -10,6 +10,7 @@
     sasrecVisual: "item-cold-start",
     buildSteps: 3,
     scaling: {
+      unseenItem: { id: 1000001, title: "Toy Story 5 (2026)" },
       points: [
         {
           label: "Observed during training",
@@ -28,8 +29,7 @@
           body: "No item-specific vector for this event."
         }
       ],
-      formula: "\\(c_{\\mathrm{new}}\\) can be computed from content.",
-      note: "Illustrative holdout: Toy Story 2 is known to the bundled checkpoint. Vector cells are schematic."
+      formula: "\\(c_{\\mathrm{new}}\\) can be computed from content."
     },
     citation: "Lichtenberg et al. (2025) · arXiv:2508.18442"
   });
