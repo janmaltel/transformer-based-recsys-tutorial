@@ -17,14 +17,14 @@
       {
         icon: "model",
         phase: "Model",
-        title: "SASRec, basic variants & cold-start",
-        body: "Architecture · objectives · user and item cold-start"
+        title: "SASRec, training & basic variants",
+        body: "Architecture · training objectives · negative sampling"
       },
       {
         icon: "scale",
         phase: "Systems",
-        title: "Deployment & catalog scale",
-        body: "RecJPQ · semantic IDs · retrieval and serving"
+        title: "Catalog scale, serving & cold-start",
+        body: "RecJPQ · semantic IDs · user and item cold-start"
       },
       {
         icon: "frontier",

@@ -27,7 +27,8 @@
     ],
     repository: {
       label: "janmaltel.github.io/transformer-based-recsys-tutorial/",
-      url: "https://janmaltel.github.io/transformer-based-recsys-tutorial/"
+      url: "https://janmaltel.github.io/transformer-based-recsys-tutorial/",
+      qrImage: "assets/images/tutorial-repository-qr.png"
     }
   });
 })();

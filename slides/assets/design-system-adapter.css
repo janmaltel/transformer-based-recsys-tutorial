@@ -283,6 +283,18 @@ a:hover { color: var(--link-hover); }
   overflow-wrap: anywhere;
 }
 
+.title-repository-with-qr {
+  grid-template-columns: max-content minmax(0, 1fr) 164px;
+  align-items: center;
+}
+
+.title-repository-qr {
+  display: block;
+  width: 164px;
+  height: 164px;
+  object-fit: contain;
+}
+
 /* Minimal conceptual transition: the tutorial title remains recognizable while
    the term under discussion carries the only emphasis on the slide. */
 .slide-focus .slide-main {

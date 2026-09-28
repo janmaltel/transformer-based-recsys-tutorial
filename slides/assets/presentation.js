@@ -64,6 +64,13 @@
     link.href = repository.url;
     if (repository.label) authorText(link, slide, "/repository/label");
     resource.appendChild(link);
+    if (repository.qrImage) {
+      resource.classList.add("title-repository-with-qr");
+      var image = element("img", "title-repository-qr");
+      image.src = repository.qrImage;
+      image.alt = "QR code for the tutorial site";
+      resource.appendChild(image);
+    }
     content.appendChild(resource);
   }
 
