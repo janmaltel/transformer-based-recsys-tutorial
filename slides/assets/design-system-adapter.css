@@ -258,6 +258,13 @@ a:hover { color: var(--link-hover); }
 
 .presenter-email:hover { color: var(--link-hover); }
 
+.title-attribution {
+  margin: var(--sp-5) 0 0;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-figure);
+}
+
 .title-repository {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);

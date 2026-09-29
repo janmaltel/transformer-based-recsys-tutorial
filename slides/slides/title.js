@@ -25,6 +25,11 @@
         image: "assets/images/aleksandr-petrov.jpg"
       }
     ],
+    attribution: {
+      text: "Some slides ported from",
+      label: "Petrov & Macdonald’s ECIR 2024 tutorial",
+      url: "https://github.com/asash/transformers-for-recsys-tutorial"
+    },
     repository: {
       label: "janmaltel.github.io/transformer-based-recsys-tutorial/",
       url: "https://janmaltel.github.io/transformer-based-recsys-tutorial/",

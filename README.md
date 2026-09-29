@@ -26,3 +26,17 @@ this distribution does not grant a separate license to that artwork.
 
 `release.json` identifies each published snapshot by its content and records
 file checksums. The downloadable ZIP contains the same snapshot as the site.
+
+## Citation
+
+If you use these tutorial materials, please cite:
+
+```bibtex
+@inproceedings{lichtenberg2026transformer,
+  title={Transformer-based Sequential Recommender Systems},
+  author={Lichtenberg, Jan Malte and Petrov, Aleksandr V},
+  booktitle={Proceedings of the 20th ACM Conference on Recommender Systems},
+  pages={1911--1912},
+  year={2026}
+}
+```

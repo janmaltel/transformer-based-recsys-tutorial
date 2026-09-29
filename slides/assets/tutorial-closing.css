@@ -43,6 +43,18 @@
   outline-offset: 4px;
 }
 
+.slide-citation .statement-body {
+  max-width: none;
+  margin: 32px 0 0;
+  padding: 28px;
+  border: 1px solid var(--border-hairline);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 400 20px/1.7 var(--font-mono);
+  user-select: text;
+}
+.slide-citation code { font: inherit; }
+
 @media print {
   #tutorial-recap .scaling-point,
   .paper-reference { break-inside: avoid; }

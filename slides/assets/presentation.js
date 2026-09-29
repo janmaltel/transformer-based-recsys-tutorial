@@ -270,6 +270,18 @@
       titleCopy.appendChild(titleHeading);
       main.appendChild(titleCopy);
       if (slide.presenters) renderPresenters(slide, main);
+      if (slide.attribution) {
+        var credit = element("p", "title-attribution");
+        credit.appendChild(authorText(element("span", "", slide.attribution.text), slide, "/attribution/text"));
+        credit.appendChild(document.createTextNode(" "));
+        var creditLink = authorText(element("a", "", slide.attribution.label), slide, "/attribution/label");
+        creditLink.href = slide.attribution.url;
+        creditLink.target = "_blank";
+        creditLink.rel = "noopener noreferrer";
+        credit.appendChild(creditLink);
+        credit.appendChild(document.createTextNode("."));
+        main.appendChild(credit);
+      }
       if (slide.repository) renderRepository(slide, main);
     } else {
       if (slide.type !== "playground" || playgroundComposition(slide) === "teaching") {
@@ -288,12 +300,12 @@
           ));
         }
         if (slide.body) {
-          var body = element("p", "statement-body");
+          var body = element(slide.type === "citation" ? "pre" : "p", "statement-body");
           if (slide.bodyLead) {
             body.appendChild(authorText(element("strong", "", slide.bodyLead), slide, "/bodyLead"));
             body.appendChild(document.createTextNode(" "));
           }
-          body.appendChild(authorText(element("span", "statement-body-copy", slide.body), slide, "/body"));
+          body.appendChild(authorText(element(slide.type === "citation" ? "code" : "span", "statement-body-copy", slide.body), slide, "/body"));
           main.appendChild(body);
         }
       }
