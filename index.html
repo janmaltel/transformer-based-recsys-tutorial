@@ -70,7 +70,11 @@
           <p>BibTeX</p>
         </div>
         <p>If you use these tutorial materials, please cite:</p>
-        <pre><code>@inproceedings{lichtenberg2026transformer,
+        <div class="citation-tools" hidden>
+          <span id="citation-copy-status" role="status"></span>
+          <button class="citation-copy" type="button" aria-label="Copy BibTeX citation">Copy</button>
+        </div>
+        <pre><code id="citation-bibtex">@inproceedings{lichtenberg2026transformer,
   title={Transformer-based Sequential Recommender Systems},
   author={Lichtenberg, Jan Malte and Petrov, Aleksandr V},
   booktitle={Proceedings of the 20th ACM Conference on Recommender Systems},
@@ -83,5 +87,59 @@
         <a href="https://github.com/janmaltel/transformer-based-recsys-tutorial">Materials on GitHub</a>
       </footer>
     </main>
+    <script>
+      (function () {
+        "use strict";
+        var tools = document.querySelector(".citation-tools");
+        var button = tools.querySelector("button");
+        var code = document.getElementById("citation-bibtex");
+        var status = document.getElementById("citation-copy-status");
+        tools.hidden = false;
+
+        function copyFallback(text) {
+          var input = document.createElement("textarea");
+          input.className = "citation-copy-buffer";
+          input.value = text;
+          input.readOnly = true;
+          document.body.appendChild(input);
+          input.select();
+          try {
+            return document.execCommand("copy");
+          } finally {
+            input.remove();
+            button.focus({ preventScroll: true });
+          }
+        }
+
+        button.addEventListener("click", async function () {
+          status.textContent = "";
+          button.disabled = true;
+          var copied = false;
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(code.textContent);
+              copied = true;
+            }
+          } catch (error) {
+            // Local files and browser permissions may require the fallback.
+          }
+          if (!copied) {
+            try { copied = copyFallback(code.textContent); } catch (error) {}
+          }
+          button.disabled = false;
+          button.focus({ preventScroll: true });
+          if (copied) {
+            status.textContent = "Copied.";
+          } else {
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents(code);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            status.textContent = "Select the BibTeX below and use your copy shortcut.";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
