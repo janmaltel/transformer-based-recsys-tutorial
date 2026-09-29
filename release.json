@@ -2,8 +2,8 @@
   "files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "README.md": "288b087df808ff214296f75d82f7557c0d100e0a77c52809ddc8721abcbb41e8",
-    "index.html": "d71020c480fbeb6c0619a8df10809866f349ff2d20212fde96c23eddff03f4c7",
-    "site.css": "976843ae82081fd0c9c6f32eca7cf746619048ee642b7b0b4a2fa9d8e7fe4727",
+    "index.html": "195c3b0a7347ab364d26afce743d8131676b6e4082b785657c31963b857a6fd0",
+    "site.css": "d5e68a8cabe99c5071c390f06b1f19744a573bc9c30a9bea46018d7452584376",
     "slides/assets/canonical-movie-example.js": "f906a4d9bdf839aaf9175306b1acdee0ada7d1a8f5f4532606556f7ec6fc338e",
     "slides/assets/catalogue-scale-visual.js": "320354cf6c068bc81d96184e3a5d5a28453325c601aa2ffd3913d10b4e84723e",
     "slides/assets/citations.js": "2493c04f2b34998cd0565736ad18fe8c54c61eee9381745bdbb0d63a5d9db6a3",
@@ -3987,6 +3987,6 @@
     "slides/slides/why-movielens-here.js": "a6f5fcb3ba1948cb0f0fd8a3924b69362d0092ba3c64bedd86eeac006fdc1463",
     "slides/slides/working-definition.js": "196c81fe0bd6ae028dc66b1bc0cef294bf93bfdbed8f17e6a4b24226118d21f9"
   },
-  "release": "43762113bd73f2f5bb59",
+  "release": "c55e3b6c3e9ed1c33002",
   "schema": 1
 }
