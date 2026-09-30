@@ -1,0 +1,63 @@
+.presentation-touch-navigation { display: none; }
+
+@media screen and (any-pointer: coarse) {
+  .deck {
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+      calc(64px + env(safe-area-inset-bottom, 0px)) env(safe-area-inset-left, 0px);
+  }
+
+  .presentation-touch-navigation {
+    position: fixed;
+    z-index: 30;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+
+  .presentation-touch-navigation button {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--border-hairline);
+    border-radius: 0;
+    background: var(--surface-page);
+    color: var(--text-primary);
+    font: 22px/1 var(--font-body);
+    cursor: pointer;
+  }
+
+  .presentation-touch-navigation button:disabled { opacity: 0.4; cursor: default; }
+  .presentation-touch-navigation button:focus-visible {
+    outline: 2px solid var(--blue-600);
+    outline-offset: -2px;
+  }
+
+  .presentation-outline,
+  .presentation-fullscreen {
+    bottom: env(safe-area-inset-bottom, 0px);
+    opacity: 1 !important;
+  }
+
+  .presentation-outline { left: env(safe-area-inset-left, 0px); }
+  .presentation-fullscreen { right: env(safe-area-inset-right, 0px); }
+  .deck-fullscreen-toggle,
+  .presentation-outline .deck-outline-trigger { min-height: 44px; }
+  .deck-fullscreen-toggle {
+    max-width: calc(50vw - 68px - env(safe-area-inset-right, 0px));
+    white-space: normal;
+  }
+
+  .deck-outline-panel,
+  .deck-fullscreen-message {
+    max-width: calc(100vw - 20px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+    max-height: calc(100dvh - 84px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+  }
+}
+
+@media screen and (any-pointer: coarse) and (max-width: 380px) {
+  .deck-outline-trigger span { display: none; }
+  .presentation-outline .deck-outline-trigger { width: 44px; justify-content: center; }
+}

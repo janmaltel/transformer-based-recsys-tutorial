@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="RecSys tutorial">
     <meta name="description" content="RecSys 2026 tutorial on Transformer-based Sequential Recommender Systems.">
     <title>Transformer-based Sequential Recommender Systems</title>
     <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
@@ -48,6 +51,7 @@
     <link rel="stylesheet" href="assets/recjpq-quality.css?v=20260916-recjpq-quality-4">
     <link rel="stylesheet" href="assets/recjpq-compression.css?v=20260916-compression-5">
     <link rel="stylesheet" href="assets/gbce-gradient-lab.css?v=20260916-gradients-3">
+    <link rel="stylesheet" href="assets/presentation-touch.css">
     <script src="assets/vendor/katex/katex.min.js" defer></script>
     <script src="assets/vendor/katex/contrib/auto-render.min.js" defer></script>
     <script src="assets/vendor/svgjs/svg.min.js" defer></script>
@@ -255,6 +259,7 @@
     <script src="assets/presentation-outline.js" defer></script>
     <script src="assets/presentation-viewport.js" defer></script>
     <script src="assets/presentation-fullscreen.js" defer></script>
+    <script src="assets/presentation-touch.js" defer></script>
     <script src="assets/presentation.js" defer></script>
     <script src="assets/math-render.js" defer></script>
   </head>
@@ -264,7 +269,7 @@
     <main id="deck" class="deck" tabindex="-1"></main>
 
     <nav class="presentation-outline" aria-label="Presentation outline" hidden>
-      <button type="button" class="deck-outline-trigger" aria-expanded="false" aria-controls="presentation-deck-outline-panel">
+      <button type="button" class="deck-outline-trigger" aria-label="Presentation outline" aria-expanded="false" aria-controls="presentation-deck-outline-panel">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" aria-hidden="true"><path d="M1 3h3m2 0h9M1 8h3m2 0h9M1 13h3m2 0h9"/></svg>
         <span>Outline</span>
       </button>

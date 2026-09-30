@@ -342,12 +342,14 @@
       step.classList.toggle("is-current", index === buildStage);
       step.setAttribute("aria-hidden", String(index > buildStage));
     });
+    window.dispatchEvent(new CustomEvent("presentation:statechange"));
   }
 
   function show(index, updateHash) {
     if (!slides.length) return;
+    index = Math.max(0, Math.min(slides.length - 1, index));
     if (index !== current) buildStage = 0;
-    current = Math.max(0, Math.min(slides.length - 1, index));
+    current = index;
     Array.prototype.forEach.call(deck.children, function (slide, slideIndex) {
       var active = slideIndex === current;
       slide.classList.toggle("is-active", active);
@@ -413,6 +415,15 @@
     });
   }
   show(indexFromHash(), !window.location.hash);
+  if (window.PresentationTouch) {
+    window.PresentationTouch.mount(deck, move, function () {
+      var count = slides[current].buildSteps || (slides[current].goals ? slides[current].goals.length : 0);
+      return {
+        canPrevious: current > 0 || buildStage > 0,
+        canNext: current < slides.length - 1 || buildStage < count - 1
+      };
+    });
+  }
 
   function capturesDeckKeyboard(event) {
     var path = event.composedPath ? event.composedPath() : [event.target];

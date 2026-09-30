@@ -16,6 +16,22 @@
   host.appendChild(message);
   document.body.appendChild(host);
 
+  function activeElement() {
+    return document.fullscreenElement || document.webkitFullscreenElement;
+  }
+
+  function standalone() {
+    return navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
+  }
+
+  function unavailable() {
+    if (standalone()) return "The presentation is already open without browser toolbars. Rotate your device for a larger slide view.";
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+      return "For a view without browser toolbars, open these slides in Safari, tap Share → Add to Home Screen, then open the saved app. Rotate to landscape for larger slides.";
+    }
+    return "Fullscreen is unavailable in this view. Open this page in a regular browser and try Fullscreen there. Rotate your phone to landscape for larger slides.";
+  }
+
   function report(text) {
     message.textContent = text;
     message.hidden = !text;
@@ -23,25 +39,29 @@
   }
 
   function sync() {
-    var active = Boolean(document.fullscreenElement);
-    button.textContent = active ? "Exit fullscreen" : "Fullscreen";
+    var active = Boolean(activeElement());
+    button.textContent = active ? "Exit fullscreen" : standalone() ? "App view" : "Fullscreen";
     button.setAttribute("aria-pressed", String(active));
   }
 
   async function toggle() {
     if (button.disabled) return;
     report("");
-    if (!document.documentElement.requestFullscreen || document.fullscreenEnabled === false) {
-      report("Fullscreen is unavailable in this view. Open this page in a regular browser and try Fullscreen there.");
+    var root = document.documentElement;
+    var request = root.requestFullscreen || root.webkitRequestFullscreen;
+    var exit = document.exitFullscreen || document.webkitExitFullscreen;
+    var enabled = root.requestFullscreen ? document.fullscreenEnabled : document.webkitFullscreenEnabled;
+    if ((!activeElement() && (!request || enabled === false)) || (activeElement() && !exit)) {
+      report(unavailable());
       return;
     }
     button.disabled = true;
     try {
-      if (document.fullscreenElement) await document.exitFullscreen();
-      else await document.documentElement.requestFullscreen();
+      if (activeElement()) await exit.call(document);
+      else await request.call(root);
       document.querySelector("#deck").focus({ preventScroll: true });
     } catch (error) {
-      report("The browser could not switch fullscreen. Try again, or open this page in a regular browser.");
+      report("The browser could not switch fullscreen. " + unavailable());
     } finally {
       button.disabled = false;
       sync();
@@ -49,9 +69,11 @@
   }
 
   button.addEventListener("click", toggle);
-  document.addEventListener("fullscreenchange", function () {
-    report("");
-    sync();
+  ["fullscreenchange", "webkitfullscreenchange"].forEach(function (name) {
+    document.addEventListener(name, function () {
+      report("");
+      sync();
+    });
   });
   document.addEventListener("pointerdown", function (event) {
     if (!host.contains(event.target)) report("");
