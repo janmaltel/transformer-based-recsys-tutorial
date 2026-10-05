@@ -55,6 +55,16 @@
 }
 .slide-citation code { font: inherit; }
 
+noscript.citation-fallback {
+  inset: 0;
+  overflow: auto;
+  padding: clamp(20px, 4vw, 56px);
+  background: var(--paper);
+  text-align: left;
+}
+.citation-fallback h2 { font: 600 clamp(28px, 4vw, 40px)/1.2 var(--font-display); }
+.citation-fallback .statement-body { font-size: clamp(14px, 1.6vw, 20px); }
+
 @media print {
   #tutorial-recap .scaling-point,
   .paper-reference { break-inside: avoid; }

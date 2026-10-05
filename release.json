@@ -3803,7 +3803,7 @@
     "slides/assets/tiger-visual.js": "dfe631594959fc2bd5570392e5954accc7f7184427754adc04ba34680492e8fa",
     "slides/assets/training-corpora-visual.js": "388feb2097491d22b877e8160ffb4e1e2c432c50c5820a3fec8baac2dea9bcea",
     "slides/assets/training-data-example.js": "6e1a9466cb3086a7fd4bda058b706dacc2fdb5c9aa6124f59f1bcf7103dc5577",
-    "slides/assets/tutorial-closing.css": "8b5f89933554568a5968e9feeffb7251fc65375373fe1f21b7574ad3d0efe794",
+    "slides/assets/tutorial-closing.css": "e6a894b33741ebfbf6e8201883dec6b474c8e1c02a21f8f11c15c2ced46489e0",
     "slides/assets/tutorial-review.css": "3b116dbb06f8146c2f53384ab02999061b44fc9006702215657f9e93dda6eef7",
     "slides/assets/vendor/THIRD_PARTY_NOTICES.md": "ec2dc7d6473889b59d85519166a8ecfd2fed8d6941e6a707a69d63f1ce10f0a5",
     "slides/assets/vendor/katex/LICENSE": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
@@ -3874,7 +3874,7 @@
     "slides/assets/vendor/svgjs/svg.min.js": "801f4a7696746ce5bfdcdbcea5d3158f90b9836cb545688f6912dc3422afb27e",
     "slides/assets/vendor/svgjs/svg.min.js.map": "1ee9d73b5e64205b7e322ad1351dba1051d13c8bddcf4a7533a7311665e6d22e",
     "slides/element-overrides.js": "0453ca4610aa4d2c5900cea10a6d674ea88009c51dc4eabeafc91e0ba8f5f29c",
-    "slides/index.html": "1b436f173ea2ac71efb36966fe1862b253ccc0eda70e72e5f30cf6d94ff1463b",
+    "slides/index.html": "3aa5cada30a22d03a3e854d83ce777ae5c259c17e7882ad10448047f29615ac6",
     "slides/slides/block-one.js": "cb25aaac0e4052e66d70dffb8846cf14572fc54e2aa10ebca8b02b30b35d3c57",
     "slides/slides/catalog-scale-and-item-representations.js": "f263d2d55e41084123f10f38f32607578c4ceb05525802c67a4a7fdaed54c720",
     "slides/slides/content-embedding-benchmarks.js": "4a0706d327ab063e765ac2ce6f4e34624605604d5d00200b118015fc1d8b34e3",
@@ -3989,6 +3989,6 @@
     "slides/slides/why-movielens-here.js": "a6f5fcb3ba1948cb0f0fd8a3924b69362d0092ba3c64bedd86eeac006fdc1463",
     "slides/slides/working-definition.js": "196c81fe0bd6ae028dc66b1bc0cef294bf93bfdbed8f17e6a4b24226118d21f9"
   },
-  "release": "7ce717c7a05bf3af440a",
+  "release": "b03b8f52eede9073f455",
   "schema": 1
 }
